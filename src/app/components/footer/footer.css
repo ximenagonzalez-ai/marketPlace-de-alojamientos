@@ -1,0 +1,107 @@
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  padding: 55px 0 20px;
+  margin-top: 50px;
+}
+
+
+/* =========================
+   TÍTULO STAYHOME
+   ========================= */
+
+.footer-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   DESCRIPCIONES
+   ========================= */
+
+.footer-description {
+  color: #6c757d;
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: 12px;
+}
+
+
+/* =========================
+   TÍTULOS
+   ========================= */
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   LISTAS
+   ========================= */
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   LÍNEA DIVISORIA
+   ========================= */
+
+.footer-line {
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 40px 0 20px;
+}
+
+
+/* =========================
+   PARTE INFERIOR
+   ========================= */
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin: 5px 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-title {
+    font-size: 1.5rem;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+}

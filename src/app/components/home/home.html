@@ -1,1 +1,326 @@
-<p>home works!</p>
+<main>
+
+  <!-- ==========================================
+       SECCIÓN 1 - PRESENTACIÓN
+       ========================================== -->
+  <section class="hero-section">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <!-- Texto -->
+        <div class="col-lg-6">
+
+          <h1 class="hero-title">
+            Encuentra tu lugar ideal con StayHome
+          </h1>
+
+          <p class="hero-text">
+            Descubre alojamientos cómodos y especiales para disfrutar
+            de tus viajes y encontrar el lugar perfecto para quedarte.
+          </p>
+
+          <a
+            routerLink="/alojamientos"
+            class="btn btn-dark btn-lg hero-button">
+            Buscar alojamiento
+          </a>
+
+        </div>
+
+
+        <!-- Imagen -->
+        <div class="col-lg-6">
+
+          <div class="image-container">
+
+            <img
+              src="assets/images/alojamiento-principal.jpg"
+              alt="Alojamiento turístico"
+              class="section-image">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       SECCIÓN 2 - SOBRE STAYHOME
+       ========================================== -->
+  <section class="about-section">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <!-- Imagen izquierda -->
+        <div class="col-lg-6">
+
+          <div class="image-container">
+
+            <img
+              src="assets/images/stayhome-experiencia.jpg"
+              alt="Experiencia StayHome"
+              class="section-image">
+
+          </div>
+
+        </div>
+
+
+        <!-- Texto derecha -->
+        <div class="col-lg-6">
+
+          <span class="section-label">
+            CONOCE STAYHOME
+          </span>
+
+          <h2 class="section-title">
+            Una nueva forma de encontrar tu alojamiento
+          </h2>
+
+          <p class="section-text">
+            <strong>StayHome</strong> es la plataforma de alojamientos
+            turísticos diseñada para simplificar la forma en que exploras
+            el mundo.
+          </p>
+
+          <p class="section-text">
+            Te conectamos con espacios únicos, seguros e inspiradores
+            en los mejores destinos, ofreciendo reservas rápidas,
+            transparentes y respaldadas por atención al cliente 24/7.
+          </p>
+
+          <p class="section-text">
+            Nuestro objetivo es hacer que encontrar un lugar para
+            hospedarte sea una experiencia sencilla y agradable,
+            permitiéndote descubrir diferentes opciones de acuerdo
+            con tus necesidades y preferencias.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       SECCIÓN 3 - ALOJAMIENTOS DESTACADOS
+       ========================================== -->
+  <section class="featured-section">
+
+    <div class="container">
+
+      <!-- Encabezado -->
+      <div class="section-header text-center">
+
+        <span class="section-label">
+          DESCUBRE
+        </span>
+
+        <h2 class="section-title">
+          Alojamientos destacados
+        </h2>
+
+        <p class="section-subtitle">
+          Descubre algunos de los alojamientos mejor calificados
+          disponibles en StayHome.
+        </p>
+
+      </div>
+
+
+      <!-- CARGANDO -->
+      @if (cargando) {
+        <div class="loading-container">
+
+          <div
+            class="spinner-border"
+            role="status">
+
+      <span class="visually-hidden">
+        Cargando...
+      </span>
+
+          </div>
+
+          <p>
+            Cargando alojamientos...
+          </p>
+
+        </div>
+      }
+
+
+      <!-- ALOJAMIENTOS -->
+      @if (!cargando) {
+        <div class="row g-4">
+
+          @for (alojamiento of alojamientosDestacados; track alojamiento.id) {
+            <div class="col-12 col-md-6 col-lg-4">
+
+              <div class="card alojamiento-card h-100">
+
+                <!-- Imagen -->
+                <img
+                  [src]="alojamiento.imagenPrincipal"
+                  [alt]="alojamiento.nombre"
+                  class="card-img-top alojamiento-image">
+
+
+                <!-- Información -->
+                <div class="card-body d-flex flex-column">
+
+                  <!-- Tipo -->
+                  <span class="badge alojamiento-type align-self-start mb-2">
+              {{ alojamiento.tipo }}
+            </span>
+
+
+                  <!-- Nombre -->
+                  <h5 class="card-title fw-bold">
+                    {{ alojamiento.nombre }}
+                  </h5>
+
+
+                  <!-- Ciudad -->
+                  <p class="card-location">
+                    📍 {{ alojamiento.ciudad }}
+                  </p>
+
+
+                  <!-- Descripción -->
+                  <p class="card-text text-secondary">
+                    {{ alojamiento.descripcion }}
+                  </p>
+
+
+                  <!-- Información -->
+                  <div class="accommodation-info">
+
+                    <div>
+                      <small>
+                        Capacidad
+                      </small>
+
+                      <strong>
+                        {{ alojamiento.capacidad }}
+                      </strong>
+                    </div>
+
+
+                    <div>
+                      <small>
+                        Habitaciones
+                      </small>
+
+                      <strong>
+                        {{ alojamiento.habitaciones }}
+                      </strong>
+                    </div>
+
+
+                    <div>
+                      <small>
+                        Camas
+                      </small>
+
+                      <strong>
+                        {{ alojamiento.camas }}
+                      </strong>
+                    </div>
+
+                  </div>
+
+
+                  <!-- Calificación -->
+                  <div class="rating">
+
+              <span>
+                ★
+              </span>
+
+                    <strong>
+                      {{ alojamiento.calificacion }}
+                    </strong>
+
+                    <small>
+                      / 5
+                    </small>
+
+                  </div>
+
+
+                  <!-- Precio -->
+                  <div class="price-container">
+
+                    <strong>
+                      ${{ alojamiento.precioNoche | number }}
+                    </strong>
+
+                    <span>
+                / noche
+              </span>
+
+                  </div>
+
+
+                  <!-- Botón -->
+                  <a
+                    [routerLink]="['/alojamientos', alojamiento.id]"
+                    class="btn btn-outline-dark w-100">
+
+                    Ver alojamiento
+
+                  </a>
+
+                </div>
+
+              </div>
+
+            </div>
+          }
+
+        </div>
+      }
+
+
+      <!-- SIN ALOJAMIENTOS -->
+      @if (!cargando && alojamientosDestacados.length === 0) {
+        <div class="empty-container">
+
+          <h5>
+            No hay alojamientos disponibles
+          </h5>
+
+          <p>
+            Actualmente no tenemos alojamientos destacados.
+          </p>
+
+          <a
+            routerLink="/alojamientos"
+            class="btn btn-dark">
+
+            Ver alojamientos
+
+          </a>
+
+        </div>
+      }
+
+    </div>
+
+  </section>
+
+</main>
+
