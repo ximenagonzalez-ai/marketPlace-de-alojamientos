@@ -1,0 +1,15 @@
+.navbar {
+  min-height: 70px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+}
+
+.nav-link {
+  margin: 0 8px;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
