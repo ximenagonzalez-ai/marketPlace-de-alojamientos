@@ -36,7 +36,7 @@
           <div class="image-container">
 
             <img
-              src="assets/images/alojamiento-principal.jpg"
+              src="assets/images/loftChapinerojpg"
               alt="Alojamiento turístico"
               class="section-image">
 
@@ -66,7 +66,7 @@
           <div class="image-container">
 
             <img
-              src="assets/images/stayhome-experiencia.jpg"
+              src="assets/images/cocinaLoftChapinero.jpg"
               alt="Experiencia StayHome"
               class="section-image">
 
@@ -141,7 +141,7 @@
 
 
       <!-- CARGANDO -->
-      @if (cargando) {
+      @if (cargando()) {
         <div class="loading-container">
 
           <div
@@ -163,10 +163,10 @@
 
 
       <!-- ALOJAMIENTOS -->
-      @if (!cargando) {
+      @if (!cargando()) {
         <div class="row g-4">
 
-          @for (alojamiento of alojamientosDestacados; track alojamiento.id) {
+          @for (alojamiento of alojamientosDestacados(); track alojamiento.id) {
             <div class="col-12 col-md-6 col-lg-4">
 
               <div class="card alojamiento-card h-100">
@@ -296,7 +296,7 @@
 
 
       <!-- SIN ALOJAMIENTOS -->
-      @if (!cargando && alojamientosDestacados.length === 0) {
+      @if (!cargando() && alojamientosDestacados().length === 0) {
         <div class="empty-container">
 
           <h5>
