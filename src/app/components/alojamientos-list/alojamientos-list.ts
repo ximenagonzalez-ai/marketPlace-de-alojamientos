@@ -1,6 +1,6 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {AlojamientoService} from '../../service/alojamientoservice';
-import {Alojamiento} from '../../model/alojamientosmodel';
+import {Alojamiento} from '../../model/alojamientomodel';
 
 @Component({
   selector: 'app-alojamientos-list',
