@@ -17,4 +17,5 @@ export interface Alojamiento {
   imagenes: string[];
   servicios: string[];
   reglas: string[];
+
 }

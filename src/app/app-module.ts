@@ -9,7 +9,7 @@ import { Navbarcomponent } from './components/navbarcomponent/navbarcomponent';
 import { Footer } from './components/footer/footer';
 import { DetalleAlojamiento } from './components/detalle-alojamiento/detalle-alojamiento';
 import { Cotizacion } from './components/cotizacion/cotizacion';
-
+imports: [BrowserModule, AppRoutingModule, FormsModule];
 @NgModule({
   declarations: [
     App,
