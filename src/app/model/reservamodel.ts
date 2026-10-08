@@ -1,14 +1,19 @@
+export type EstadoReserva = 'CONFIRMADA' | 'CANCELADA';
+
 export interface Reserva {
-  id: string;
-  alojamientoId: number;
-  nombreAlojamiento: string;
-  ciudad: string;
-  fechaLlegada: string;
+  id: number;
+  alojamiento: {
+    id: number;
+    nombre: string;
+    ciudad: string;
+    imagenPrincipal: string;
+  };
+  fechaLlegada: string; // 'YYYY-MM-DD'
   fechaSalida: string;
-  numeroHuespedes: number;
-  numeroNoches: number;
-  valorTotal: number;
+  huespedes: number;
+  noches: number;
+  total: number;
   nombreHuesped: string;
-  correoElectronico: string;
-  estado: 'CONFIRMADA';
+  correo: string;
+  estado: EstadoReserva;
 }

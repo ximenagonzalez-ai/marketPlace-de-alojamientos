@@ -7,12 +7,25 @@ import { AlojamientosList } from './components/alojamientos-list/alojamientos-li
 import { Navbarcomponent } from './components/navbarcomponent/navbarcomponent';
 import { Footer } from './components/footer/footer';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MisreservasComponent } from './components/misreservas/misreservas';
-import { SimularreservaComponent } from './components/simularreserva/simularreserva';
+import { MisReservasComponent } from './components/misreservas/misreservas';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Simularreserva } from './components/simularreserva/simularreserva';
+
+
 
 @NgModule({
   declarations: [App, Home, AlojamientosList, Navbarcomponent, Footer],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, MisreservasComponent, SimularreservaComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MisReservasComponent,
+    CurrencyPipe,
+    DatePipe,
+    RouterLink,
+    Simularreserva,
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

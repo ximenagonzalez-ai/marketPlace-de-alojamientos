@@ -1,100 +1,152 @@
+@if (reservaConfirmada(); as reserva) {
 
-<div class="container my-5">
-  <div class="row g-4">
+  <!-- ESTADO: RESERVA REGISTRADA -->
+  <div class="card border-success shadow-sm reserva-card" role="status">
+    <div class="card-body p-4">
+      <h2 class="h4 fw-bold text-success mb-3">
+        <i class="bi bi-check-circle-fill me-2"></i>Reserva confirmada
+      </h2>
 
-    <!-- Columna Izquierda: Formulario de Registro y Fechas -->
-    <div class="col-lg-7">
-      <div class="card shadow-sm border-0 dynamic-card">
-        <div class="card-header text-white custom-header-dark py-3">
-          <h4 class="mb-0 fs-5"><i class="bi bi-person-check-fill me-2"></i>Simulación de Reserva</h4>
-        </div>
-        <div class="card-body p-4">
-          <form [formGroup]="reservaForm" (ngSubmit)="confirmarReserva()">
+      <p class="text-muted">
+        Registramos tu reserva en <strong>{{ reserva.alojamiento.nombre }}</strong>
+        ({{ reserva.alojamiento.ciudad }}).
+      </p>
 
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Fecha de Llegada</label>
-                <input type="date" formControlName="fechaLlegada" class="form-control custom-input">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Fecha de Salida</label>
-                <input type="date" formControlName="fechaSalida" class="form-control custom-input"
-                       [ngClass]="{'is-invalid': errorFechas}">
-              </div>
-            </div>
+      <ul class="list-unstyled mb-4">
+        <li class="d-flex justify-content-between py-1">
+          <span class="text-muted">Código</span>
+          <span class="fw-semibold">#{{ reserva.id }}</span>
+        </li>
+        <li class="d-flex justify-content-between py-1">
+          <span class="text-muted">Huésped</span>
+          <span class="fw-semibold">{{ reserva.nombreHuesped }}</span>
+        </li>
+        <li class="d-flex justify-content-between py-1">
+          <span class="text-muted">Llegada</span>
+          <span class="fw-semibold">{{ reserva.fechaLlegada | date: 'dd/MM/yyyy' }}</span>
+        </li>
+        <li class="d-flex justify-content-between py-1">
+          <span class="text-muted">Salida</span>
+          <span class="fw-semibold">{{ reserva.fechaSalida | date: 'dd/MM/yyyy' }}</span>
+        </li>
+        <li class="d-flex justify-content-between py-1">
+          <span class="text-muted">Total</span>
+          <span class="fw-bold">{{ reserva.total | currency: 'COP':'symbol-narrow':'1.0-0' }}</span>
+        </li>
+        <li class="d-flex justify-content-between py-1">
+          <span class="text-muted">Estado</span>
+          <span class="badge text-bg-success rounded-pill">{{ reserva.estado }}</span>
+        </li>
+      </ul>
 
-            <!-- Alerta dinámica de reglas de negocio para las fechas -->
-            <div *ngIf="errorFechas" class="alert alert-danger py-2 fs-7" role="alert">
-              <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ errorFechas }}
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Número de Huéspedes</label>
-              <input type="number" formControlName="numeroHuespedes" class="form-control custom-input"
-                     [ngClass]="{'is-invalid': reservaForm.get('numeroHuespedes')?.touched && reservaForm.get('numeroHuespedes')?.invalid}">
-              <div class="invalid-feedback">
-                El número de huéspedes no puede superar la capacidad máxima de este alojamiento (Max: {{capacidadMaxima}}).
-              </div>
-            </div>
-
-            <hr class="text-muted my-4">
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Nombre del Huésped</label>
-              <input type="text" formControlName="nombreHuesped" class="form-control custom-input" placeholder="Ej. Juan Pérez"
-                     [ngClass]="{'is-invalid': reservaForm.get('nombreHuesped')?.touched && reservaForm.get('nombreHuesped')?.invalid}">
-              <div class="invalid-feedback">El nombre es requerido (mínimo 3 letras).</div>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label fw-semibold">Correo Electrónico</label>
-              <input type="email" formControlName="correoElectronico" class="form-control custom-input" placeholder="ejemplo@correo.com"
-                     [ngClass]="{'is-invalid': reservaForm.get('correoElectronico')?.touched && reservaForm.get('correoElectronico')?.invalid}">
-              <div class="invalid-feedback">Por favor introduce una dirección de correo válida.</div>
-            </div>
-
-            <button type="submit" class="btn btn-success w-100 btn-lg mt-4 shadow-sm" [disabled]="total === 0">
-              <i class="bi bi-bookmark-check-fill me-2"></i>Reservar Alojamiento
-            </button>
-          </form>
-        </div>
-      </div>
+      <a routerLink="/misreservas" class="btn btn-primary w-100 rounded-pill">
+        <i class="bi bi-journal-bookmark-fill me-2"></i>Ver mis reservas
+      </a>
     </div>
+  </div>
 
-    <!-- Columna Derecha: Tarjeta de Cotización Dinámica -->
-    <div class="col-lg-5">
-      <div class="card shadow-sm border-0 sticky-top dynamic-card" style="top: 24px;">
-        <div class="card-header text-white custom-header-blue py-3">
-          <h4 class="mb-0 fs-5"><i class="bi bi-receipt me-2"></i>Cotización de la Estancia</h4>
-        </div>
-        <div class="card-body p-4">
-          <h5 class="card-title text-dark mb-1">{{ nombreAlojamiento }}</h5>
-          <p class="text-muted small mb-4"><i class="bi bi-geo-alt-fill me-1 text-danger"></i>{{ ciudad }}</p>
+} @else {
 
-          <div class="price-breakdown">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="text-secondary">${{ precioNoche | number }} COP x {{ numeroNoches }} noches</span>
-              <span class="fw-medium text-dark">${{ subtotal | number }} COP</span>
-            </div>
-            <div class="d-flex justify-content-between mb-2">ss
-              <span class="text-secondary">Tarifa de limpieza</span>
-              <span class="fw-medium text-dark">${{ tarifaLimpieza | number }} COP</span>
-            </div>
-            <div class="d-flex justify-content-between mb-3">
-              <span class="text-secondary">Tarifa de servicio (10%)</span>
-              <span class="fw-medium text-dark">${{ tarifaServicio | number }} COP</span>
-            </div>
+  <div class="card border-0 shadow-sm reserva-card">
+    <div class="card-body p-4">
+      <h2 class="h4 fw-bold mb-3">Reservar este alojamiento</h2>
 
-            <hr class="text-muted">
+      @if (cotizacion; as c) {
 
-            <div class="d-flex justify-content-between align-items-center mt-3">
-              <span class="h6 mb-0 fw-bold text-dark">Total</span>
-              <span class="h4 mb-0 fw-bold text-success">${{ total | number }} COP</span>
-            </div>
+        <!-- RESUMEN DE LA COTIZACIÓN -->
+        <div class="bg-light rounded-3 p-3 mb-4">
+          <h3 class="h6 fw-bold mb-3">Resumen</h3>
+          <ul class="list-unstyled small mb-0">
+            <li class="d-flex justify-content-between py-1">
+              <span class="text-muted">Alojamiento</span>
+              <span class="fw-semibold">{{ alojamiento.nombre }}</span>
+            </li>
+            <li class="d-flex justify-content-between py-1">
+              <span class="text-muted">Llegada</span>
+              <span class="fw-semibold">{{ c.fechaLlegada | date: 'dd/MM/yyyy' }}</span>
+            </li>
+            <li class="d-flex justify-content-between py-1">
+              <span class="text-muted">Salida</span>
+              <span class="fw-semibold">{{ c.fechaSalida | date: 'dd/MM/yyyy' }}</span>
+            </li>
+            <li class="d-flex justify-content-between py-1">
+              <span class="text-muted">Huéspedes</span>
+              <span class="fw-semibold">{{ c.huespedes }}</span>
+            </li>
+            <li class="d-flex justify-content-between py-1">
+              <span class="text-muted">Noches</span>
+              <span class="fw-semibold">{{ c.noches }}</span>
+            </li>
+          </ul>
+          <hr />
+          <div class="d-flex justify-content-between align-items-baseline">
+            <span class="fw-semibold">Total</span>
+            <span class="fs-5 fw-bold text-primary">
+              {{ c.total | currency: 'COP':'symbol-narrow':'1.0-0' }}
+            </span>
           </div>
         </div>
-      </div>
-    </div>
 
+        <!-- FORMULARIO -->
+        <form [formGroup]="form" (ngSubmit)="reservar()" novalidate>
+
+          <div class="mb-3">
+            <label for="nombre" class="form-label fw-semibold">Nombre del huésped</label>
+            <input
+              id="nombre"
+              type="text"
+              class="form-control"
+              formControlName="nombre"
+              autocomplete="name"
+              [class.is-invalid]="mostrarError(nombre)"
+            />
+            @if (mostrarError(nombre)) {
+              <div class="invalid-feedback d-block">
+                @if (nombre.errors?.['required']) {
+                  Ingresa tu nombre.
+                } @else if (nombre.errors?.['minlength']) {
+                  El nombre debe tener al menos 3 caracteres.
+                }
+              </div>
+            }
+          </div>
+
+          <div class="mb-4">
+            <label for="correo" class="form-label fw-semibold">Correo electrónico</label>
+            <input
+              id="correo"
+              type="email"
+              class="form-control"
+              formControlName="correo"
+              autocomplete="email"
+              [class.is-invalid]="mostrarError(correo)"
+            />
+            @if (mostrarError(correo)) {
+              <div class="invalid-feedback d-block">
+                @if (correo.errors?.['required']) {
+                  Ingresa tu correo electrónico.
+                } @else if (correo.errors?.['email']) {
+                  Escribe un correo válido, por ejemplo nombre&#64;correo.com.
+                }
+              </div>
+            }
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold">
+            Reservar
+          </button>
+        </form>
+
+      } @else {
+
+        <!-- ESTADO: TODAVÍA NO HAY COTIZACIÓN VÁLIDA -->
+        <div class="alert alert-warning mb-0" role="alert">
+          Para reservar, primero selecciona las fechas y el número de huéspedes
+          y genera una cotización.
+        </div>
+
+      }
+    </div>
   </div>
-</div>
+
+}

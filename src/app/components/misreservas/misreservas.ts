@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { ReservaService } from '../../service/reservaservice';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ReservasService } from '../../service/reservaservice';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Reserva } from '../../model/reservamodel';
-import { DatePipe, DecimalPipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-misreservas',
+  selector: 'app-mis-reservas',
+  standalone: true,
+  imports: [RouterLink, CurrencyPipe, DatePipe],
   templateUrl: './misreservas.html',
-  styleUrls: ['./misreservas.css'],
-  imports: [DecimalPipe, DatePipe],
+  styleUrl: './misreservas.css',
 })
-export class MisreservasComponent implements OnInit {
-  // Arreglo donde se guardarán las reservas de la sesión
+export class MisReservasComponent {
+  private reservasService = inject(ReservasService);
+
   listaReservas: Reserva[] = [];
 
-  constructor(private reservaService: ReservaService) {}
-
-  ngOnInit(): void {
-    // Le pedimos al servicio las reservas almacenadas en el localStorage
-    this.listaReservas = this.reservaService.getReservas();
+  constructor() {
+    this.reservasService.reservas$
+      .pipe(takeUntilDestroyed())
+      .subscribe((reservas) => (this.listaReservas = reservas));
   }
 }

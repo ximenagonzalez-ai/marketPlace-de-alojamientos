@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SimularreservaComponent } from './simularreserva';
+import Simularreserva from './simularreserva';
 
 describe('Simularreserva', () => {
-  let component: SimularreservaComponent;
-  let fixture: ComponentFixture<SimularreservaComponent>;
+  let component: Simularreserva;
+  let fixture: ComponentFixture<Simularreserva>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SimularreservaComponent],
+      declarations: [Simularreserva],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SimularreservaComponent);
+    fixture = TestBed.createComponent(Simularreserva);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
