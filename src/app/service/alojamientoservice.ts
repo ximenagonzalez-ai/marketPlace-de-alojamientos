@@ -13,6 +13,8 @@ export class AlojamientoService {
   private dataUrl = 'assets/data/marketplace-data.json';
 
 
+
+
   // Obtiene todos los alojamientos activos[cite: 4]
   getAlojamientos(): Observable<Alojamiento[]> {
     return this.cliente.get<{ alojamientos: Alojamiento[] }>(this.dataUrl).pipe(

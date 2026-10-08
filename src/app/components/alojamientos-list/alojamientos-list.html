@@ -1,1 +1,103 @@
-<p>alojamientos-list works!</p>
+<main class="listado-section">
+  <div class="container">
+
+    <!-- Encabezado -->
+    <div class="listado-header">
+      <h1 class="listado-title">Alojamientos disponibles</h1>
+      <p class="listado-subtitle">
+        Explora todos los alojamientos y encuentra el que mejor se ajuste a ti.
+      </p>
+    </div>
+
+    <!-- Cargando -->
+    @if (cargando()) {
+      <div class="text-center py-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p class="mt-3">Cargando alojamientos...</p>
+      </div>
+    }
+
+    <!-- Error -->
+    @if (!cargando() && error()) {
+      <div class="alert alert-danger" role="alert">
+        No fue posible cargar los alojamientos. Intenta nuevamente más tarde.
+      </div>
+    }
+
+    <!-- Listado -->
+    @if (!cargando() && !error()) {
+
+      @if (alojamientos().length > 0) {
+        <p class="resultados-texto">
+          {{ alojamientos().length }} alojamientos encontrados
+        </p>
+
+        <div class="row g-4">
+          @for (alojamiento of alojamientos(); track alojamiento.id) {
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card alojamiento-card h-100">
+
+                <img
+                  [src]="alojamiento.imagenPrincipal"
+                  [alt]="alojamiento.nombre"
+                  class="card-img-top alojamiento-image">
+
+                <div class="card-body d-flex flex-column">
+
+                  <span class="badge alojamiento-type align-self-start mb-2">
+                    {{ alojamiento.tipo }}
+                  </span>
+
+                  <h5 class="card-title fw-bold">{{ alojamiento.nombre }}</h5>
+
+                  <p class="card-location">📍 {{ alojamiento.ciudad }}</p>
+
+                  <div class="accommodation-info">
+                    <div>
+                      <small>Capacidad</small>
+                      <strong>{{ alojamiento.capacidad }} huéspedes</strong>
+                    </div>
+                    <div class="rating">
+                      <small>Calificación</small>
+                      <strong><span>★</span> {{ alojamiento.calificacion }}</strong>
+                    </div>
+                  </div>
+
+                  <!-- Servicios -->
+                  <div class="servicios">
+                    @for (servicio of alojamiento.servicios; track servicio) {
+                      <span class="servicio-chip">{{ servicio }}</span>
+                    }
+                  </div>
+
+                  <!-- Precio -->
+                  <div class="price-container mt-auto">
+                    <strong>${{ alojamiento.precioNoche | number }}</strong>
+                    <span>/ noche</span>
+                  </div>
+
+                  <a
+                    [routerLink]="['/alojamientos', alojamiento.id]"
+                    class="btn btn-outline-dark w-100 mt-3">
+                    Ver alojamiento
+                  </a>
+
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+      } @else {
+        <div class="empty-container text-center py-5">
+          <h5>No hay alojamientos disponibles</h5>
+          <p>Por el momento no tenemos alojamientos para mostrar.</p>
+        </div>
+      }
+    }
+
+  </div>
+</main>
+
