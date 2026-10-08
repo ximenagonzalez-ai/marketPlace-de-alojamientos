@@ -7,6 +7,7 @@ import { Simularreserva } from './components/simularreserva/simularreserva';
 
 const routes: Routes = [
   {path : 'reserva', component: MisReservasComponent},
+  {path : '', component: Home},
   {path : 'home', component: Home},
   { path: 'alojamientos', component: AlojamientosList },
   { path: 'simulador', component: Simularreserva}
