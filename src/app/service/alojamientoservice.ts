@@ -1,15 +1,15 @@
-import {inject, Injectable} from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {Alojamiento} from '../model/alojamientomodel';
+import { Alojamiento } from '../model/alojamientomodel';
+import { Resena } from '../model/resena.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AlojamientoService {
-  private cliente : HttpClient=inject(HttpClient);
-  // Ruta donde se almacena el archivo JSON[cite: 4]
+  private cliente: HttpClient = inject(HttpClient);
   private dataUrl = 'assets/data/marketplace-data.json';
 
 
@@ -17,20 +17,28 @@ export class AlojamientoService {
 
   // Obtiene todos los alojamientos activos[cite: 4]
   getAlojamientos(): Observable<Alojamiento[]> {
-    return this.cliente.get<{ alojamientos: Alojamiento[] }>(this.dataUrl).pipe(
-      map(response => response.alojamientos.filter(a => a.activo)) // Regla de negocio: No mostrar inactivos[cite: 4]
+    return this.cliente
+      .get<{ alojamientos: Alojamiento[] }>(this.dataUrl)
+      .pipe(map((response) => response.alojamientos.filter((a) => a.activo)));
+  }
+
+  getAlojamientoById(id: number): Observable<Alojamiento | undefined> {
+    return this.getAlojamientos().pipe(
+      map((alojamientos) => alojamientos.find((a) => a.id === id)),
     );
   }
 
-  // Obtiene los mejores alojamientos comparando y ordenando por calificación
+  getResenasByAlojamientoId(id: number): Observable<Resena[]> {
+    return this.cliente
+      .get<{ resenas: Resena[] }>(this.dataUrl)
+      .pipe(map((response) => response.resenas.filter((r) => r.alojamientoId === id)));
+  }
+
   getAlojamientosDestacados(limit: number = 3): Observable<Alojamiento[]> {
     return this.getAlojamientos().pipe(
-      map(alojamientos =>
-        // Ordena de mayor a menor calificación[cite: 1, 2]
-        alojamientos
-          .sort((a, b) => b.calificacion - a.calificacion)
-          .slice(0, limit)
-      )
+      map((alojamientos) =>
+        alojamientos.sort((a, b) => b.calificacion - a.calificacion).slice(0, limit),
+      ),
     );
   }
 }
