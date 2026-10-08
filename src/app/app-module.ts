@@ -29,17 +29,6 @@ import { Simularreserva } from './components/simularreserva/simularreserva';
     Cotizacion,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  declarations: [App, Home, AlojamientosList, Navbarcomponent, Footer],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    MisReservasComponent,
-    CurrencyPipe,
-    DatePipe,
-    RouterLink,
-    Simularreserva,
-  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })
