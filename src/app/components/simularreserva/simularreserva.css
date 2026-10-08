@@ -1,0 +1,33 @@
+.dynamic-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.custom-header-dark {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+
+.custom-header-blue {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+.custom-input {
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-input:focus {
+  border-color: #2a5298;
+  box-shadow: 0 0 0 0.25rem rgba(42, 82, 152, 0.15);
+}
+
+.price-breakdown span {
+  font-size: 0.95rem;
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}

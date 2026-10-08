@@ -1,0 +1,100 @@
+
+<div class="container my-5">
+  <div class="row g-4">
+
+    <!-- Columna Izquierda: Formulario de Registro y Fechas -->
+    <div class="col-lg-7">
+      <div class="card shadow-sm border-0 dynamic-card">
+        <div class="card-header text-white custom-header-dark py-3">
+          <h4 class="mb-0 fs-5"><i class="bi bi-person-check-fill me-2"></i>Simulación de Reserva</h4>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="reservaForm" (ngSubmit)="confirmarReserva()">
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Fecha de Llegada</label>
+                <input type="date" formControlName="fechaLlegada" class="form-control custom-input">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Fecha de Salida</label>
+                <input type="date" formControlName="fechaSalida" class="form-control custom-input"
+                       [ngClass]="{'is-invalid': errorFechas}">
+              </div>
+            </div>
+
+            <!-- Alerta dinámica de reglas de negocio para las fechas -->
+            <div *ngIf="errorFechas" class="alert alert-danger py-2 fs-7" role="alert">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ errorFechas }}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Número de Huéspedes</label>
+              <input type="number" formControlName="numeroHuespedes" class="form-control custom-input"
+                     [ngClass]="{'is-invalid': reservaForm.get('numeroHuespedes')?.touched && reservaForm.get('numeroHuespedes')?.invalid}">
+              <div class="invalid-feedback">
+                El número de huéspedes no puede superar la capacidad máxima de este alojamiento (Max: {{capacidadMaxima}}).
+              </div>
+            </div>
+
+            <hr class="text-muted my-4">
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Nombre del Huésped</label>
+              <input type="text" formControlName="nombreHuesped" class="form-control custom-input" placeholder="Ej. Juan Pérez"
+                     [ngClass]="{'is-invalid': reservaForm.get('nombreHuesped')?.touched && reservaForm.get('nombreHuesped')?.invalid}">
+              <div class="invalid-feedback">El nombre es requerido (mínimo 3 letras).</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Correo Electrónico</label>
+              <input type="email" formControlName="correoElectronico" class="form-control custom-input" placeholder="ejemplo@correo.com"
+                     [ngClass]="{'is-invalid': reservaForm.get('correoElectronico')?.touched && reservaForm.get('correoElectronico')?.invalid}">
+              <div class="invalid-feedback">Por favor introduce una dirección de correo válida.</div>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 btn-lg mt-4 shadow-sm" [disabled]="total === 0">
+              <i class="bi bi-bookmark-check-fill me-2"></i>Reservar Alojamiento
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Tarjeta de Cotización Dinámica -->
+    <div class="col-lg-5">
+      <div class="card shadow-sm border-0 sticky-top dynamic-card" style="top: 24px;">
+        <div class="card-header text-white custom-header-blue py-3">
+          <h4 class="mb-0 fs-5"><i class="bi bi-receipt me-2"></i>Cotización de la Estancia</h4>
+        </div>
+        <div class="card-body p-4">
+          <h5 class="card-title text-dark mb-1">{{ nombreAlojamiento }}</h5>
+          <p class="text-muted small mb-4"><i class="bi bi-geo-alt-fill me-1 text-danger"></i>{{ ciudad }}</p>
+
+          <div class="price-breakdown">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-secondary">${{ precioNoche | number }} COP x {{ numeroNoches }} noches</span>
+              <span class="fw-medium text-dark">${{ subtotal | number }} COP</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">ss
+              <span class="text-secondary">Tarifa de limpieza</span>
+              <span class="fw-medium text-dark">${{ tarifaLimpieza | number }} COP</span>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <span class="text-secondary">Tarifa de servicio (10%)</span>
+              <span class="fw-medium text-dark">${{ tarifaServicio | number }} COP</span>
+            </div>
+
+            <hr class="text-muted">
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="h6 mb-0 fw-bold text-dark">Total</span>
+              <span class="h4 mb-0 fw-bold text-success">${{ total | number }} COP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
