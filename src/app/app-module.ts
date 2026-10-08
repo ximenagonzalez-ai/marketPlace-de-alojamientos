@@ -10,6 +10,14 @@ import { Footer } from './components/footer/footer';
 import { DetalleAlojamiento } from './components/detalle-alojamiento/detalle-alojamiento';
 import { Cotizacion } from './components/cotizacion/cotizacion';
 imports: [BrowserModule, AppRoutingModule, FormsModule];
+import { ReactiveFormsModule } from '@angular/forms';
+import { MisReservasComponent } from './components/misreservas/misreservas';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Simularreserva } from './components/simularreserva/simularreserva';
+
+
+
 @NgModule({
   declarations: [
     App,
@@ -21,6 +29,17 @@ imports: [BrowserModule, AppRoutingModule, FormsModule];
     Cotizacion,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [App, Home, AlojamientosList, Navbarcomponent, Footer],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MisReservasComponent,
+    CurrencyPipe,
+    DatePipe,
+    RouterLink,
+    Simularreserva,
+  ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
 })

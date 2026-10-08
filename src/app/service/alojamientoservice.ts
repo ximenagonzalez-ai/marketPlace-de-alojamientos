@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Alojamiento } from '../model/alojamientosmodel';
+import { Alojamiento } from '../model/alojamientomodel';
 import { Resena } from '../model/resena.model';
 
 @Injectable({
@@ -12,6 +12,10 @@ export class AlojamientoService {
   private cliente: HttpClient = inject(HttpClient);
   private dataUrl = 'assets/data/marketplace-data.json';
 
+
+
+
+  // Obtiene todos los alojamientos activos[cite: 4]
   getAlojamientos(): Observable<Alojamiento[]> {
     return this.cliente
       .get<{ alojamientos: Alojamiento[] }>(this.dataUrl)

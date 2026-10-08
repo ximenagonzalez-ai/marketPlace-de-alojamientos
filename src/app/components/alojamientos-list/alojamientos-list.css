@@ -1,0 +1,63 @@
+.listado-section {
+  padding: 3rem 0;
+}
+
+.listado-header {
+  margin-bottom: 2rem;
+}
+
+.listado-title {
+  font-weight: 700;
+}
+
+.listado-subtitle,
+.resultados-texto {
+  color: #6c757d;
+}
+
+.alojamiento-image {
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-location {
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+
+.accommodation-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.accommodation-info small {
+  display: block;
+  color: #6c757d;
+}
+
+.rating span {
+  color: #f5a623;
+}
+
+.servicios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.servicio-chip {
+  background: #f1f3f5;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.price-container strong {
+  font-size: 1.3rem;
+}
+
+.price-container span {
+  color: #6c757d;
+}
