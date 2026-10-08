@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetalleAlojamiento } from './components/detalle-alojamiento/detalle-alojamiento';
+
 import {AlojamientosList} from './components/alojamientos-list/alojamientos-list';
 import {Home} from './components/home/home';
 import { MisReservasComponent } from './components/misreservas/misreservas';
