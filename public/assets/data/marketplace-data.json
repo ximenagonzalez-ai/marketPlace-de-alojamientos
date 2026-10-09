@@ -17,7 +17,7 @@
       "activo": true,
       "imagenPrincipal": "assets/images/loftChapinero.jpg",
       "imagenes": [
-        "assets/images/cocinaLoftChapinero",
+        "assets/images/cocinaLoftChapinero.jpg",
         "assets/images/loftChapinero2.jpg"
       ],
       "servicios": [
