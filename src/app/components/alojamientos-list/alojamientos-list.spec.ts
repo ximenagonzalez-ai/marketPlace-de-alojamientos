@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AlojamientosList } from './alojamientos-list';
+import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { RouterModule } from '@angular/router';
 
 describe('AlojamientosList', () => {
   let component: AlojamientosList;
@@ -8,6 +12,8 @@ describe('AlojamientosList', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AlojamientosList],
+      imports: [FormsModule, RouterModule.forRoot([])],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AlojamientosList);
