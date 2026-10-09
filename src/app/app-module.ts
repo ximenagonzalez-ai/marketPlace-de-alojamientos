@@ -15,16 +15,18 @@ import { Simularreserva } from './components/simularreserva/simularreserva';
 import { DetalleAlojamiento } from './components/detalle-alojamiento/detalle-alojamiento';
 import { Cotizacion } from './components/cotizacion/cotizacion';
 import { Misreservas } from './components/misreservas/misreservas';
+import { Login } from './components/login/login';
 
 @NgModule({
   declarations: [
     App,
     Home,
     AlojamientosList,
-    Navbarcomponent,
+    Navbarcomponent, // <--- Asegúrate de que esté aquí declarado
     Footer,
     DetalleAlojamiento,
     Cotizacion,
+    Login,
   ],
   imports: [
     BrowserModule,
@@ -35,12 +37,9 @@ import { Misreservas } from './components/misreservas/misreservas';
     DatePipe,
     RouterLink,
     Simularreserva,
-    Misreservas
+    Misreservas,
   ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
-  ],
+  providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],
 })
 export class AppModule {}

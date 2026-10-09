@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, Output, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, inject, signal } from '@angular/core';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { Alojamiento } from '../../model/alojamientomodel';
 import { Cotizacion } from '../../model/cotizacionmodel';
 import { Reserva } from '../../model/reservamodel';
 import { ReservaService } from '../../service/reservaservice';
+import { AuthService } from '../../service/authservice';
 
 @Component({
   selector: 'app-simularreserva',
@@ -14,18 +15,15 @@ import { ReservaService } from '../../service/reservaservice';
   templateUrl: './simularreserva.html',
   styleUrl: './simularreserva.css',
 })
-export class Simularreserva {
-  /** Alojamiento seleccionado en el detalle. */
+export class Simularreserva implements OnInit {
   @Input({ required: true }) alojamiento!: Alojamiento;
-
-  /** Cotización ya generada y válida. Si es null, no se puede reservar. */
   @Input() cotizacion: Cotizacion | null = null;
-
-  /** Avisa al componente padre cuando la reserva quedó registrada. */
   @Output() reservaCreada = new EventEmitter<Reserva>();
 
   private fb = inject(FormBuilder);
   private reservasService = inject(ReservaService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   reservaConfirmada = signal<Reserva | null>(null);
   intentoEnvio = signal(false);
@@ -43,7 +41,17 @@ export class Simularreserva {
     return this.form.controls.correo;
   }
 
-  /** Muestra el error solo si el usuario tocó el campo o intentó enviar. */
+  ngOnInit(): void {
+
+    const usuarioActual = this.authService.obtenerUsuarioActual();
+    if (usuarioActual) {
+      this.form.patchValue({
+        nombre: usuarioActual.nombre,
+        correo: usuarioActual.email
+      });
+    }
+  }
+
   mostrarError(control: { invalid: boolean; touched: boolean }): boolean {
     return control.invalid && (control.touched || this.intentoEnvio());
   }
@@ -51,7 +59,17 @@ export class Simularreserva {
   reservar(): void {
     this.intentoEnvio.set(true);
 
-    // Regla de negocio: solo se reserva con una cotización válida.
+
+    const usuarioActual = this.authService.obtenerUsuarioActual();
+    if (!usuarioActual) {
+      alert('Debes iniciar sesión o registrarte para poder realizar una reserva.');
+      // Guardamos la URL actual para regresar aquí después del login
+      sessionStorage.setItem('url_pendiente', this.router.url);
+      this.router.navigate(['/login']);
+      return;
+    }
+
+
     if (!this.cotizacion) {
       return;
     }
@@ -62,6 +80,7 @@ export class Simularreserva {
     }
 
     const { nombre, correo } = this.form.getRawValue();
+
 
     const nueva = this.reservasService.agregar({
       alojamiento: {
