@@ -1,19 +1,20 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ReservasService } from '../../service/reservaservice';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Reserva } from '../../model/reservamodel';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
+import { ReservaService } from '../../service/reservaservice';
+import { Reserva } from '../../model/reservamodel';
 
 @Component({
-  selector: 'app-mis-reservas',
+  selector: 'app-misreservas',
   standalone: true,
   imports: [RouterLink, CurrencyPipe, DatePipe],
   templateUrl: './misreservas.html',
   styleUrl: './misreservas.css',
 })
-export class MisReservasComponent {
-  private reservasService = inject(ReservasService);
+export class Misreservas {
+  private reservasService = inject(ReservaService);
 
   listaReservas: Reserva[] = [];
 
@@ -21,6 +22,12 @@ export class MisReservasComponent {
     this.reservasService.reservas$
       .pipe(takeUntilDestroyed())
       .subscribe((reservas) => (this.listaReservas = reservas));
+  }
+
+  eliminarTodas(): void {
+    if (confirm('¿Eliminar todas las reservas?')) {
+      this.reservasService.eliminarTodas();
+    }
   }
   eliminar(id: number): void {
     if (confirm('¿Eliminar esta reserva?')) {

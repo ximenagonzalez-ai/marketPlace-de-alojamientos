@@ -39,7 +39,7 @@
         </li>
       </ul>
 
-      <a routerLink="/misreservas" class="btn btn-primary w-100 rounded-pill">
+      <a routerLink="/reserva" class="btn btn-primary w-100 rounded-pill">
         <i class="bi bi-journal-bookmark-fill me-2"></i>Ver mis reservas
       </a>
     </div>
@@ -140,10 +140,13 @@
       } @else {
 
         <!-- ESTADO: TODAVÍA NO HAY COTIZACIÓN VÁLIDA -->
-        <div class="alert alert-warning mb-0" role="alert">
-          Para reservar, primero selecciona las fechas y el número de huéspedes
-          y genera una cotización.
+        <div class="alert alert-warning mb-3" role="alert">
+          Completa las fechas y el número de huéspedes en la cotización para poder reservar.
         </div>
+
+        <button type="button" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold" disabled>
+          Reservar
+        </button>
 
       }
     </div>

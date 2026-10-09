@@ -12,9 +12,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Simularreserva } from './components/simularreserva/simularreserva';
-import { MisReservasComponent } from './components/misreservas/misreservas';
 import { DetalleAlojamiento } from './components/detalle-alojamiento/detalle-alojamiento';
 import { Cotizacion } from './components/cotizacion/cotizacion';
+import { Misreservas } from './components/misreservas/misreservas';
 
 @NgModule({
   declarations: [
@@ -30,12 +30,12 @@ import { Cotizacion } from './components/cotizacion/cotizacion';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MisReservasComponent,
     CurrencyPipe,
     ReactiveFormsModule,
     DatePipe,
     RouterLink,
     Simularreserva,
+    Misreservas
   ],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

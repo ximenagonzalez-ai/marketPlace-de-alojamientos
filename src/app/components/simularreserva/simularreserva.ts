@@ -2,12 +2,10 @@ import { Component, EventEmitter, Input, Output, inject, signal } from '@angular
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-
-// Ajusta estas rutas y nombres a los de tu proyecto
 import { Alojamiento } from '../../model/alojamientomodel';
 import { Cotizacion } from '../../model/cotizacionmodel';
 import { Reserva } from '../../model/reservamodel';
-import { ReservasService } from '../../service/reservaservice';
+import { ReservaService } from '../../service/reservaservice';
 
 @Component({
   selector: 'app-simularreserva',
@@ -27,7 +25,7 @@ export class Simularreserva {
   @Output() reservaCreada = new EventEmitter<Reserva>();
 
   private fb = inject(FormBuilder);
-  private reservasService = inject(ReservasService);
+  private reservasService = inject(ReservaService);
 
   reservaConfirmada = signal<Reserva | null>(null);
   intentoEnvio = signal(false);

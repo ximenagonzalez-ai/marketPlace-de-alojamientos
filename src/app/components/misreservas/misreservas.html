@@ -6,92 +6,106 @@
       <i class="bi bi-journal-bookmark-fill me-2 text-primary"></i>Mis reservas
     </h2>
 
-    <!-- Se oculta si NO hay reservas -->
-    <a routerLink="/alojamientos"
-       class="btn btn-outline-primary btn-sm px-3 rounded-pill"
-       [hidden]="listaReservas.length === 0">
-      <i class="bi bi-plus-circle me-1"></i>Nueva reserva
-    </a>
-  </div>
-
-  <!-- ESTADO SIN INFORMACIÓN: se oculta si SÍ existen reservas -->
-  <div class="card text-center py-5 border-0 shadow-sm" [hidden]="listaReservas.length > 0">
-    <div class="card-body">
-      <div class="mb-3">
-        <i class="bi bi-calendar-x display-4 text-secondary"></i>
-      </div>
-      <h4 class="fw-bold">Aún no tienes reservas registradas</h4>
-      <p class="text-muted mb-4">
-        Cuando reserves un alojamiento, aparecerá aquí. Explora el catálogo
-        y encuentra tu próxima estancia.
-      </p>
-      <a routerLink="/alojamientos" class="btn btn-primary px-4 py-2 rounded-pill shadow-sm fw-semibold">
-        <i class="bi bi-search me-2"></i>Explorar alojamientos
-      </a>
-    </div>
-  </div>
-
-  <!-- LISTA DE RESERVAS -->
-  <div class="row g-4" [hidden]="listaReservas.length === 0">
-    @for (reserva of listaReservas; track reserva.id) {
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 border-0 shadow-sm">
-
-          <img [src]="reserva.alojamiento.imagenPrincipal"
-               [alt]="reserva.alojamiento.nombre"
-               class="card-img-top"
-               style="height: 180px; object-fit: cover;" />
-
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
-              <h5 class="card-title fw-bold mb-0">{{ reserva.alojamiento.nombre }}</h5>
-              <span class="badge rounded-pill"
-                    [class.text-bg-success]="reserva.estado === 'CONFIRMADA'"
-                    [class.text-bg-danger]="reserva.estado === 'CANCELADA'">
-                {{ reserva.estado }}
-              </span>
-            </div>
-
-            <p class="text-muted mb-3">
-              <i class="bi bi-geo-alt-fill me-1"></i>{{ reserva.alojamiento.ciudad }}
-            </p>
-
-            <ul class="list-unstyled mb-0 small">
-              <li class="d-flex justify-content-between py-1">
-                <span class="text-muted">Llegada</span>
-                <span class="fw-semibold">{{ reserva.fechaLlegada | date: 'dd/MM/yyyy' }}</span>
-              </li>
-              <li class="d-flex justify-content-between py-1">
-                <span class="text-muted">Salida</span>
-                <span class="fw-semibold">{{ reserva.fechaSalida | date: 'dd/MM/yyyy' }}</span>
-              </li>
-              <li class="d-flex justify-content-between py-1">
-                <span class="text-muted">Huéspedes</span>
-                <span class="fw-semibold">{{ reserva.huespedes }}</span>
-              </li>
-              <li class="d-flex justify-content-between py-1">
-                <span class="text-muted">Noches</span>
-                <span class="fw-semibold">{{ reserva.noches }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
-            <span class="text-muted">Total</span>
-            <span class="fs-5 fw-bold text-primary">
-              {{ reserva.total | currency: 'COP':'symbol-narrow':'1.0-0' }}
-            </span>
-          </div>
-
-        </div>
-      </div>
-      <div class="card-footer bg-white border-0 pt-0">
-        <button class="btn btn-outline-danger btn-sm w-100 rounded-pill"
-                (click)="eliminar(reserva.id)">
-          <i class="bi bi-trash me-1"></i>Eliminar reserva
+    <!-- Solo se muestra si hay reservas -->
+    @if (listaReservas.length > 0) {
+      <div class="d-flex gap-2">
+        <button type="button" class="btn-eliminar-todas" (click)="eliminarTodas()">
+          <i class="bi bi-trash me-1"></i>Eliminar todas
         </button>
+
+        <a routerLink="/alojamientos" class="btn btn-primary btn-sm px-3 rounded-pill">
+          <i class="bi bi-plus-circle me-1"></i>Nueva reserva
+        </a>
       </div>
     }
   </div>
+
+  @if (listaReservas.length === 0) {
+
+    <!-- ESTADO SIN INFORMACIÓN -->
+    <div class="card text-center py-5 border-0 shadow-sm">
+      <div class="card-body">
+        <div class="mb-3">
+          <i class="bi bi-calendar-x display-4 text-secondary"></i>
+        </div>
+        <h4 class="fw-bold">Aún no tienes reservas registradas</h4>
+        <p class="text-muted mb-4">
+          Cuando reserves un alojamiento, aparecerá aquí. Explora el catálogo
+          y encuentra tu próxima estancia.
+        </p>
+        <a routerLink="/alojamientos" class="btn btn-primary px-4 py-2 rounded-pill shadow-sm fw-semibold">
+          <i class="bi bi-search me-2"></i>Explorar alojamientos
+        </a>
+      </div>
+    </div>
+
+  } @else {
+
+    <!-- LISTA DE RESERVAS -->
+    <div class="row g-4">
+      @for (reserva of listaReservas; track reserva.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm">
+
+            <img [src]="reserva.alojamiento.imagenPrincipal"
+                 [alt]="reserva.alojamiento.nombre"
+                 class="card-img-top"
+                 style="height: 180px; object-fit: cover;" />
+
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+                <h5 class="card-title fw-bold mb-0">{{ reserva.alojamiento.nombre }}</h5>
+                <span class="badge rounded-pill"
+                      [class.text-bg-success]="reserva.estado === 'CONFIRMADA'"
+                      [class.text-bg-danger]="reserva.estado === 'CANCELADA'">
+                  {{ reserva.estado }}
+                </span>
+              </div>
+
+              <p class="text-muted mb-3">
+                <i class="bi bi-geo-alt-fill me-1"></i>{{ reserva.alojamiento.ciudad }}
+              </p>
+
+              <ul class="list-unstyled mb-0 small">
+                <li class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Llegada</span>
+                  <span class="fw-semibold">{{ reserva.fechaLlegada | date: 'dd/MM/yyyy' }}</span>
+                </li>
+                <li class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Salida</span>
+                  <span class="fw-semibold">{{ reserva.fechaSalida | date: 'dd/MM/yyyy' }}</span>
+                </li>
+                <li class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Huéspedes</span>
+                  <span class="fw-semibold">{{ reserva.huespedes }}</span>
+                </li>
+                <li class="d-flex justify-content-between py-1">
+                  <span class="text-muted">Noches</span>
+                  <span class="fw-semibold">{{ reserva.noches }}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+              <span class="text-muted">Total</span>
+
+              <div class="d-flex align-items-center gap-3">
+                <span class="fs-5 fw-bold text-primary">
+                  {{ reserva.total | currency: 'COP':'symbol-narrow':'1.0-0' }}
+                </span>
+
+                <button type="button"
+                        class="btn-eliminar"
+                        (click)="eliminar(reserva.id)">
+                  Eliminar
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      }
+  </div>
+
+  }
 
 </div>
