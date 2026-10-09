@@ -1,0 +1,85 @@
+<div class="cotizacion">
+
+  <h2>Cotiza tu estancia</h2>
+
+  <div class="fechas">
+
+    <div class="campo">
+      <label for="llegada">Fecha de llegada</label>
+      <input
+        id="llegada"
+        type="date"
+        [min]="hoy"
+        [(ngModel)]="fechaEntrada"
+        (ngModelChange)="actualizar()">
+    </div>
+
+    <div class="campo">
+      <label for="salida">Fecha de salida</label>
+      <input
+        id="salida"
+        type="date"
+        [min]="fechaEntrada || hoy"
+        [(ngModel)]="fechaSalida"
+        (ngModelChange)="actualizar()">
+    </div>
+
+  </div>
+
+  <div class="campo">
+    <label for="huespedes">Número de huéspedes</label>
+    <input
+      id="huespedes"
+      type="number"
+      min="1"
+      [max]="capacidad"
+      [(ngModel)]="numeroHuespedes"
+      (ngModelChange)="actualizar()">
+  </div>
+
+  @if (error) {
+    <div class="alert alert-danger py-2 mt-3" role="alert">
+      {{ error }}
+    </div>
+  }
+
+  <div class="resumen">
+
+    <div class="fila">
+      <span>Precio por noche</span>
+      <span>{{ precioNoche | currency:'COP':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <div class="fila">
+      <span>Huéspedes</span>
+      <span>{{ numeroHuespedes }}</span>
+    </div>
+
+    <div class="fila">
+      <span>Noches</span>
+      <span>{{ noches }}</span>
+    </div>
+
+    <div class="fila">
+      <span>Subtotal</span>
+      <span>{{ subtotal | currency:'COP':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <div class="fila">
+      <span>Tarifa de limpieza</span>
+      <span>{{ tarifaLimpieza | currency:'COP':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <div class="fila">
+      <span>Tarifa de servicio (10 %)</span>
+      <span>{{ tarifaServicio | currency:'COP':'symbol':'1.0-0' }}</span>
+    </div>
+
+    <div class="fila total">
+      <span>Total</span>
+      <span>{{ total | currency:'COP':'symbol':'1.0-0' }}</span>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,165 @@
+<main class="detalle-section">
+
+  @if (cargando) {
+    <div class="text-center py-5">
+      <div class="spinner-border" role="status"></div>
+      <p class="mt-3">Cargando alojamiento...</p>
+    </div>
+  }
+
+  @if (error) {
+    <div class="container py-5">
+      <div class="alert alert-danger">
+        No fue posible cargar el alojamiento.
+      </div>
+    </div>
+  }
+
+  @if (!cargando && !error && alojamiento) {
+
+    <div class="container">
+
+      <div class="detalle-header">
+        <div>
+          <span class="badge alojamiento-type">
+            {{ alojamiento.tipo }}
+          </span>
+
+          <h1>{{ alojamiento.nombre }}</h1>
+
+          <p class="ubicacion">
+            📍 {{ alojamiento.ciudad }} · {{ alojamiento.ubicacion }}
+          </p>
+        </div>
+
+        <div class="calificacion">
+          ★ {{ alojamiento.calificacion }}
+        </div>
+      </div>
+
+      <div class="imagenes">
+
+        <img
+          [src]="alojamiento.imagenPrincipal"
+          [alt]="alojamiento.nombre"
+          class="imagen-principal">
+
+        <div class="imagenes-secundarias">
+
+          @for (imagen of alojamiento.imagenes; track imagen) {
+            <img
+              [src]="imagen"
+              [alt]="alojamiento.nombre">
+          }
+
+        </div>
+
+      </div>
+
+      <div class="contenido">
+
+        <section class="informacion">
+
+          <h2>Sobre este alojamiento</h2>
+
+          <p>{{ alojamiento.descripcion }}</p>
+
+          <div class="caracteristicas">
+
+            <div>
+              <strong>Capacidad</strong>
+              <span>{{ alojamiento.capacidad }} huéspedes</span>
+            </div>
+
+            <div>
+              <strong>Habitaciones</strong>
+              <span>{{ alojamiento.habitaciones }}</span>
+            </div>
+
+            <div>
+              <strong>Camas</strong>
+              <span>{{ alojamiento.camas }}</span>
+            </div>
+
+            <div>
+              <strong>Baños</strong>
+              <span>{{ alojamiento.banos }}</span>
+            </div>
+
+          </div>
+
+          <h2>Servicios</h2>
+
+          <div class="lista">
+            @for (servicio of alojamiento.servicios; track servicio) {
+              <span>{{ servicio }}</span>
+            }
+          </div>
+
+          <h2>Reglas básicas</h2>
+
+          <div class="lista">
+            @for (regla of alojamiento.reglas; track regla) {
+              <span>{{ regla }}</span>
+            }
+          </div>
+
+          <h2>Reseñas</h2>
+
+          <div class="resenas">
+
+            @if (resenas.length > 0) {
+
+              @for (resena of resenas; track resena.id) {
+
+                <div class="resena">
+
+                  <div class="resena-header">
+                    <strong>{{ resena.usuario }}</strong>
+                    <span>★ {{ resena.calificacion }}</span>
+                  </div>
+
+                  <p>{{ resena.comentario }}</p>
+
+                </div>
+
+              }
+
+            } @else {
+
+              <p>No hay reseñas disponibles.</p>
+
+            }
+
+          </div>
+
+        </section>
+
+        <aside class="reserva">
+
+          <div class="precio">
+            <strong>${{ alojamiento.precioNoche | number }}</strong>
+            <span>/ noche</span>
+          </div>
+
+          <app-cotizacion
+            [precioNoche]="alojamiento.precioNoche"
+            [tarifaLimpieza]="alojamiento.tarifaLimpieza"
+            [capacidad]="alojamiento.capacidad"
+            (cotizacionGenerada)="cotizacion = $event">
+          </app-cotizacion>
+
+          <app-simularreserva
+            [alojamiento]="alojamiento"
+            [cotizacion]="cotizacion">
+          </app-simularreserva>
+
+        </aside>
+
+      </div>
+
+    </div>
+
+  }
+
+</main>
