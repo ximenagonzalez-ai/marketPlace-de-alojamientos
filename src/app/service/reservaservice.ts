@@ -30,4 +30,9 @@ export class ReservasService {
       return [];
     }
   }
+
+  eliminar(id: number): void {
+    const restantes = this.reservasSubject.value.filter((r) => r.id !== id);
+    this.actualizar(restantes);
+  }
 }

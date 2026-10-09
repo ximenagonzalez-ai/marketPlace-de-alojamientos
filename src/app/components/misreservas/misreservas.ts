@@ -22,4 +22,9 @@ export class MisReservasComponent {
       .pipe(takeUntilDestroyed())
       .subscribe((reservas) => (this.listaReservas = reservas));
   }
+  eliminar(id: number): void {
+    if (confirm('¿Eliminar esta reserva?')) {
+      this.reservasService.eliminar(id);
+    }
+  }
 }
