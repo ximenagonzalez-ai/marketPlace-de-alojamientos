@@ -1,23 +1,25 @@
 <div class="cotizacion">
 
-  <h2>Simular reserva</h2>
+  <h2>Cotiza tu estancia</h2>
 
   <div class="fechas">
 
     <div class="campo">
-      <label>Fecha de llegada</label>
-
+      <label for="llegada">Fecha de llegada</label>
       <input
+        id="llegada"
         type="date"
+        [min]="hoy"
         [(ngModel)]="fechaEntrada"
-        (change)="calcularNoches">
+        (ngModelChange)="actualizar()">
     </div>
 
     <div class="campo">
-      <label>Fecha de salida</label>
-
+      <label for="salida">Fecha de salida</label>
       <input
+        id="salida"
         type="date"
+        [min]="fechaEntrada || hoy"
         [(ngModel)]="fechaSalida"
         (change)="calcularNoches">
     </div>
@@ -25,14 +27,21 @@
   </div>
 
   <div class="campo">
-    <label>Número de huéspedes</label>
-
+    <label for="huespedes">Número de huéspedes</label>
     <input
+      id="huespedes"
       type="number"
       min="1"
       [max]="capacidad"
-      [(ngModel)]="numeroHuespedes">
+      [(ngModel)]="numeroHuespedes"
+      (ngModelChange)="actualizar()">
   </div>
+
+  @if (error) {
+    <div class="alert alert-danger py-2 mt-3" role="alert">
+      {{ error }}
+    </div>
+  }
 
   <div class="resumen">
 

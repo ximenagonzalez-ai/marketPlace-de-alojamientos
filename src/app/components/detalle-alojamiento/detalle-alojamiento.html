@@ -125,12 +125,21 @@
           <app-cotizacion
             [precioNoche]="alojamiento.precioNoche"
             [tarifaLimpieza]="alojamiento.tarifaLimpieza"
-            [capacidad]="alojamiento.capacidad">
+            [capacidad]="alojamiento.capacidad"
+            (cotizacionGenerada)="cotizacion = $event">
           </app-cotizacion>
+
+          <app-simularreserva
+            [alojamiento]="alojamiento"
+            [cotizacion]="cotizacion">
+          </app-simularreserva>
+
         </aside>
 
       </div>
+
     </div>
+
   }
 
 </main>

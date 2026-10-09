@@ -1,116 +1,17 @@
-.reservas {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
-
-h1 {
-  margin-bottom: 24px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.tarjeta {
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-
-.tarjeta img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.contenido {
-  padding: 16px;
-}
-
-.encabezado {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-.encabezado h2 {
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-.ciudad {
-  color: #666;
-  margin: 4px 0 12px;
-}
-
-dl {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin: 0 0 12px;
-}
-
-dt {
-  font-size: 0.75rem;
-  color: #888;
-  text-transform: uppercase;
-}
-
-dd {
-  margin: 0;
-  font-weight: 500;
-}
-
-.total {
-  margin: 0;
-  text-align: right;
-}
-
-.estado {
-  font-size: 0.75rem;
+.btn-eliminar,
+.btn-eliminar-todas {
+  padding: 4px 14px;
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.estado.confirmada {
-  background: #e6f4ea;
-  color: #1e7e34;
-}
-
-.estado.cancelada {
-  background: #fdecea;
   color: #b3261e;
+  background: transparent;
+  border: 1px solid #b3261e;
+  border-radius: 999px;
+  cursor: pointer;
 }
 
-/* Estado sin reservas */
-.vacio {
-  text-align: center;
-  padding: 48px 16px;
-  border: 2px dashed #ccc;
-  border-radius: 12px;
-  color: #555;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-  background: #0d6efd;
+.btn-eliminar:hover,
+.btn-eliminar-todas:hover {
   color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-@media (max-width: 480px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  background: #b3261e;
 }
