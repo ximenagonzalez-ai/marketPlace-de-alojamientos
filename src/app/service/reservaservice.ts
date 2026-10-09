@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Reserva } from '../model/reservamodel';
 
 @Injectable({ providedIn: 'root' })
-export class ReservasService {
+export class ReservaService {
   private reservasSubject = new BehaviorSubject<Reserva[]>(this.cargar());
   reservas$ = this.reservasSubject.asObservable();
 
@@ -18,7 +18,18 @@ export class ReservasService {
     return nueva;
   }
 
-  private actualizar(lista: Reserva[]) {
+  /** Elimina una reserva por su id. */
+  eliminar(id: number): void {
+    const restantes = this.reservasSubject.value.filter((r) => r.id !== id);
+    this.actualizar(restantes);
+  }
+
+  /** Elimina todas las reservas. */
+  eliminarTodas(): void {
+    this.actualizar([]);
+  }
+
+  private actualizar(lista: Reserva[]): void {
     this.reservasSubject.next(lista);
     localStorage.setItem('reservas', JSON.stringify(lista));
   }
