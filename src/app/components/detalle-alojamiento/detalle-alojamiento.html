@@ -16,7 +16,6 @@
   }
 
   @if (!cargando && !error && alojamiento) {
-
     <div class="container">
 
       <div class="detalle-header">
@@ -38,34 +37,28 @@
       </div>
 
       <div class="imagenes">
-
         <img
           [src]="alojamiento.imagenPrincipal"
           [alt]="alojamiento.nombre"
           class="imagen-principal">
 
         <div class="imagenes-secundarias">
-
           @for (imagen of alojamiento.imagenes; track imagen) {
             <img
               [src]="imagen"
               [alt]="alojamiento.nombre">
           }
-
         </div>
-
       </div>
 
       <div class="contenido">
 
         <section class="informacion">
-
           <h2>Sobre este alojamiento</h2>
 
           <p>{{ alojamiento.descripcion }}</p>
 
           <div class="caracteristicas">
-
             <div>
               <strong>Capacidad</strong>
               <span>{{ alojamiento.capacidad }} huéspedes</span>
@@ -85,7 +78,6 @@
               <strong>Baños</strong>
               <span>{{ alojamiento.banos }}</span>
             </div>
-
           </div>
 
           <h2>Servicios</h2>
@@ -107,36 +99,24 @@
           <h2>Reseñas</h2>
 
           <div class="resenas">
-
             @if (resenas.length > 0) {
-
               @for (resena of resenas; track resena.id) {
-
                 <div class="resena">
-
                   <div class="resena-header">
                     <strong>{{ resena.usuario }}</strong>
                     <span>★ {{ resena.calificacion }}</span>
                   </div>
 
                   <p>{{ resena.comentario }}</p>
-
                 </div>
-
               }
-
             } @else {
-
               <p>No hay reseñas disponibles.</p>
-
             }
-
           </div>
-
         </section>
 
         <aside class="reserva">
-
           <div class="precio">
             <strong>${{ alojamiento.precioNoche | number }}</strong>
             <span>/ noche</span>
@@ -147,13 +127,11 @@
             [tarifaLimpieza]="alojamiento.tarifaLimpieza"
             [capacidad]="alojamiento.capacidad">
           </app-cotizacion>
-
         </aside>
 
       </div>
-
     </div>
-
   }
 
 </main>
+```

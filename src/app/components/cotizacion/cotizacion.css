@@ -1,29 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .cotizacion {
-  max-width: 700px;
-  margin: 30px auto 70px;
-  padding: 30px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 24px;
   background-color: #f8f9fa;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .cotizacion h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #212529;
   margin-bottom: 25px;
+  overflow-wrap: break-word;
 }
 
 .fechas {
   display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 12px;
+  margin-bottom: 25px;
+  width: 100%;
+  min-width: 0;
 }
 
 .campo {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 18px;
 }
 
 .campo label {
@@ -33,11 +54,16 @@
 }
 
 .campo input {
-  padding: 11px 12px;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 11px 8px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 8px;
   color: #212529;
+  font-size: 0.9rem;
 }
 
 .campo input:focus {
@@ -46,6 +72,8 @@
 }
 
 .resumen {
+  width: 100%;
+  min-width: 0;
   padding-top: 20px;
   border-top: 1px solid #dddddd;
 }
@@ -53,14 +81,21 @@
 .fila {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
   margin-bottom: 15px;
   color: #6c757d;
+}
+
+.fila span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .fila span:last-child {
   color: #212529;
   font-weight: 500;
+  text-align: right;
 }
 
 .total {
@@ -68,25 +103,28 @@
   padding-top: 20px;
   border-top: 1px solid #dddddd;
   color: #212529;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .total span:last-child {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: #212529;
 }
 
 .cotizacion button {
+  display: block;
   width: 100%;
-  margin-top: 25px;
-  padding: 12px 20px;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 12px 15px;
   border: none;
   border-radius: 8px;
   background-color: #212529;
   color: #ffffff;
   font-weight: 500;
   transition: all 0.2s ease;
+  overflow-wrap: break-word;
 }
 
 .cotizacion button:hover:not(:disabled) {
@@ -101,16 +139,26 @@
 
 @media (max-width: 576px) {
   .cotizacion {
-    margin: 20px 15px 50px;
-    padding: 20px;
+    padding: 18px;
   }
 
   .fechas {
     flex-direction: column;
-    gap: 15px;
+    gap: 0;
   }
 
   .cotizacion h2 {
-    font-size: 1.7rem;
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .cotizacion {
+    padding: 12px;
+  }
+
+  .campo input {
+    font-size: 0.8rem;
+    padding: 10px 5px;
   }
 }
