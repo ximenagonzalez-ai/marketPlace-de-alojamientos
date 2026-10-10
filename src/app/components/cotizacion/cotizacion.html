@@ -21,7 +21,7 @@
         type="date"
         [min]="fechaEntrada || hoy"
         [(ngModel)]="fechaSalida"
-        (ngModelChange)="actualizar()">
+        (change)="calcularNoches">
     </div>
 
   </div>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="fila">
-      <span>Tarifa de servicio (10 %)</span>
+      <span>Tarifa de servicio</span>
       <span>{{ tarifaServicio | currency:'COP':'symbol':'1.0-0' }}</span>
     </div>
 
@@ -81,5 +81,10 @@
     </div>
 
   </div>
+
+  <button
+    [disabled]="noches <= 0 || numeroHuespedes < 1 || numeroHuespedes > capacidad">
+    Simular reserva
+  </button>
 
 </div>

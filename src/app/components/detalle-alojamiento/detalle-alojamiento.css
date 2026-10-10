@@ -1,63 +1,84 @@
-/* Estas clases coinciden con las de detalle-alojamiento.html */
-
 .detalle-section {
-  padding: 32px 0 56px;
+  padding: 32px 20px 56px;
+  background-color: #f8f9fc;
+  min-height: 100vh;
 }
 
-/* ---------- Encabezado ---------- */
+.detalle-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Encabezado */
 .detalle-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .alojamiento-type {
   display: inline-block;
-  background: #f1f3f5;
-  color: #212529;
-  font-weight: 500;
+  background-color: #e8eaff;
+  color: #4338ca;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
 }
 
 .detalle-header h1 {
-  margin: 8px 0 4px;
-  font-size: 2.2rem;
+  color: #20243a;
+  font-size: 2rem;
   font-weight: 700;
-  color: #212529;
+  line-height: 1.3;
+  margin: 0 0 10px;
 }
 
 .ubicacion {
+  color: #6b7280;
+  font-size: 0.95rem;
   margin: 0;
-  color: #6c757d;
 }
 
 .calificacion {
-  font-size: 1.1rem;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 15px;
+  color: #20243a;
   font-weight: 700;
-  white-space: nowrap;
 }
 
-/* ---------- Galería ---------- */
+/* Galería */
 .imagenes {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 390px;
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 35px;
+  overflow: hidden;
+  border-radius: 18px;
 }
 
 .imagen-principal {
   width: 100%;
-  height: 420px;
+  height: 100%;
+  min-height: 0;
   object-fit: cover;
-  border-radius: 16px;
+  display: block;
 }
 
 .imagenes-secundarias {
   display: grid;
-  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 12px;
-  max-height: 420px;
+  min-width: 0;
+  min-height: 0;
 }
 
 .imagenes-secundarias img {
@@ -65,10 +86,10 @@
   height: 100%;
   min-height: 0;
   object-fit: cover;
-  border-radius: 16px;
+  display: block;
 }
 
-/* Si solo hay una imagen, no se repite como miniatura */
+/* Si solo hay una imagen secundaria */
 .imagenes:has(.imagenes-secundarias img:only-child) {
   grid-template-columns: 1fr;
 }
@@ -77,7 +98,7 @@
   display: none;
 }
 
-/* ---------- Contenido: información + reserva ---------- */
+/* Información y reserva */
 .contenido {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
@@ -85,11 +106,19 @@
   align-items: start;
 }
 
+.informacion {
+  background-color: #ffffff;
+  border: 1px solid #e9eaf0;
+  border-radius: 16px;
+  padding: 30px;
+  min-width: 0;
+}
+
 .informacion h2 {
-  margin: 28px 0 12px;
-  font-size: 1.35rem;
+  color: #20243a;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #212529;
+  margin: 28px 0 12px;
 }
 
 .informacion h2:first-child {
@@ -97,101 +126,201 @@
 }
 
 .informacion > p {
-  color: #495057;
-  line-height: 1.7;
+  color: #626b7a;
+  font-size: 0.96rem;
+  line-height: 1.8;
+  margin: 0;
 }
 
+/* Características */
 .caracteristicas {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 20px;
-  padding: 16px 0;
-  border-top: 1px solid #e9ecef;
-  border-bottom: 1px solid #e9ecef;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
 }
 
 .caracteristicas div {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  line-height: 1.4;
 }
 
 .caracteristicas strong {
+  color: #20243a;
   font-size: 0.9rem;
-  color: #212529;
+  font-weight: 600;
 }
 
 .caracteristicas span {
+  color: #626b7a;
   font-size: 0.9rem;
-  color: #6c757d;
 }
 
+/* Servicios y reglas */
 .lista {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .lista span {
-  padding: 6px 14px;
-  font-size: 0.9rem;
-  background: #f1f3f5;
-  border-radius: 999px;
+  display: inline-block;
+  padding: 9px 13px;
+  background-color: #f3f4f8;
+  border: 1px solid #e8eaf0;
+  border-radius: 9px;
+  color: #42495a;
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
-/* ---------- Reseñas ---------- */
+/* Reseñas */
 .resenas {
-  display: grid;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .resena {
-  padding: 14px 16px;
-  border: 1px solid #e9ecef;
+  padding: 18px;
+  background-color: #fafbfe;
+  border: 1px solid #eceef4;
   border-radius: 12px;
 }
 
 .resena-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 6px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.resena-header strong {
+  color: #20243a;
+  font-size: 0.95rem;
+}
+
+.resena-header span {
+  color: #b7791f;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .resena p {
+  color: #626b7a;
+  font-size: 0.92rem;
+  line-height: 1.7;
   margin: 0;
-  color: #495057;
 }
 
-/* ---------- Columna de reserva ---------- */
+/* Tarjeta de reserva */
 .reserva {
   position: sticky;
-  top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  top: 25px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 25px rgba(31, 41, 55, 0.06);
+  min-width: 0;
 }
 
 .precio {
-  font-size: 1.6rem;
-  color: #212529;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eceef4;
+}
+
+.precio strong {
+  color: #20243a;
+  font-size: 1.65rem;
+  font-weight: 700;
 }
 
 .precio span {
-  font-size: 1rem;
-  color: #6c757d;
+  color: #6b7280;
+  font-size: 0.9rem;
 }
 
 .reserva app-cotizacion,
 .reserva app-simularreserva {
   display: block;
+  width: 100%;
+  min-width: 0;
 }
 
-/* ---------- Pantallas medianas y pequeñas ---------- */
-@media (max-width: 992px) {
+/* Pantallas medianas */
+@media (max-width: 900px) {
+  .contenido {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 18px;
+  }
+
+  .informacion {
+    padding: 22px;
+  }
+
+  .reserva {
+    padding: 20px;
+  }
+
+  .imagenes {
+    grid-template-rows: 320px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 700px) {
+  .detalle-section {
+    padding: 28px 14px 40px;
+  }
+
+  .detalle-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .detalle-header h1 {
+    font-size: 1.65rem;
+  }
+
+  .imagenes {
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px auto;
+    height: auto;
+    gap: 10px;
+  }
+
+  .imagen-principal {
+    height: 250px;
+    border-radius: 12px;
+  }
+
+  .imagenes-secundarias {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 120px);
+    gap: 10px;
+  }
+
   .contenido {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .informacion {
+    padding: 20px;
+  }
+
+  .informacion h2 {
+    font-size: 1.15rem;
+    margin-top: 26px;
   }
 
   .reserva {
@@ -199,30 +328,16 @@
   }
 }
 
-@media (max-width: 768px) {
-  .detalle-header h1 {
-    font-size: 1.7rem;
-  }
-
-  .imagenes {
+@media (max-width: 380px) {
+  .caracteristicas {
     grid-template-columns: 1fr;
   }
 
-  .imagen-principal {
-    height: 260px;
+  .informacion {
+    padding: 16px;
   }
 
-  .imagenes-secundarias {
-    grid-auto-flow: column;
-    grid-auto-rows: auto;
-    max-height: 120px;
-  }
-
-  .imagenes-secundarias img {
-    height: 120px;
-  }
-
-  .caracteristicas {
-    grid-template-columns: repeat(2, 1fr);
+  .reserva {
+    padding: 16px;
   }
 }
