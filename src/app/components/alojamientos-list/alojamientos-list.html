@@ -1,7 +1,7 @@
 <main class="listado-section">
   <div class="container">
 
-    <!-- Encabezado -->
+
     <div class="listado-header">
       <h1 class="listado-title">Alojamientos disponibles</h1>
       <p class="listado-subtitle">
@@ -9,7 +9,74 @@
       </p>
     </div>
 
-    <!-- Cargando -->
+
+    @if (!cargando() && !error()) {
+      <div class="card p-3 mb-4 shadow-sm filtros-card">
+        <div class="row g-3 align-items-end">
+
+
+          <div class="col-12 col-md-3">
+            <label class="form-label fw-semibold">Ciudad</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Ej. Bogotá, Cartagena..."
+              [ngModel]="ciudadFiltro()"
+              (ngModelChange)="ciudadFiltro.set($event)">
+          </div>
+
+
+          <div class="col-12 col-md-2">
+            <label class="form-label fw-semibold">Huéspedes</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              placeholder="Cant."
+              [ngModel]="huespedesFiltro()"
+              (ngModelChange)="huespedesFiltro.set($event)">
+          </div>
+
+
+          <div class="col-12 col-md-3">
+            <label class="form-label fw-semibold">Tipo de alojamiento</label>
+            <select
+              class="form-select"
+              [ngModel]="tipoFiltro()"
+              (ngModelChange)="tipoFiltro.set($event)">
+              <option value="">Todos los tipos</option>
+              @for (tipo of tiposAlojamiento; track tipo) {
+                <option [value]="tipo">{{ tipo }}</option>
+              }
+            </select>
+          </div>
+
+
+          <div class="col-12 col-md-2">
+            <label class="form-label fw-semibold">Precio máx. / noche</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="$ Máx"
+              [ngModel]="precioMaxFiltro()"
+              (ngModelChange)="precioMaxFiltro.set($event)">
+          </div>
+
+
+          <div class="col-12 col-md-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary w-100"
+              (click)="limpiarFiltros()">
+              Limpiar filtros
+            </button>
+          </div>
+
+        </div>
+      </div>
+    }
+
+
     @if (cargando()) {
       <div class="text-center py-5">
         <div class="spinner-border" role="status">
@@ -26,16 +93,16 @@
       </div>
     }
 
-    <!-- Listado -->
+
     @if (!cargando() && !error()) {
 
-      @if (alojamientos().length > 0) {
+      @if (alojamientosFiltrados().length > 0) {
         <p class="resultados-texto">
-          {{ alojamientos().length }} alojamientos encontrados
+          {{ alojamientosFiltrados().length }} alojamientos encontrados
         </p>
 
         <div class="row g-4">
-          @for (alojamiento of alojamientos(); track alojamiento.id) {
+          @for (alojamiento of alojamientosFiltrados(); track alojamiento.id) {
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card alojamiento-card h-100">
 
@@ -65,14 +132,14 @@
                     </div>
                   </div>
 
-                  <!-- Servicios -->
+
                   <div class="servicios">
                     @for (servicio of alojamiento.servicios; track servicio) {
                       <span class="servicio-chip">{{ servicio }}</span>
                     }
                   </div>
 
-                  <!-- Precio -->
+
                   <div class="price-container mt-auto">
                     <strong>${{ alojamiento.precioNoche | number }}</strong>
                     <span>/ noche</span>
@@ -91,13 +158,16 @@
         </div>
 
       } @else {
+
         <div class="empty-container text-center py-5">
-          <h5>No hay alojamientos disponibles</h5>
-          <p>Por el momento no tenemos alojamientos para mostrar.</p>
+          <h5>No se encontraron alojamientos</h5>
+          <p class="text-muted">Prueba cambiando tus criterios de búsqueda o limpia los filtros.</p>
+          <button class="btn btn-dark btn-sm mt-2" (click)="limpiarFiltros()">
+            Limpiar filtros
+          </button>
         </div>
       }
     }
 
   </div>
 </main>
-

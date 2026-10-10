@@ -17,7 +17,7 @@
       "activo": true,
       "imagenPrincipal": "assets/images/loftChapinero.jpg",
       "imagenes": [
-        "assets/images/cocinaLoftChapinero",
+        "assets/images/cocinaLoftChapinero.jpg",
         "assets/images/loftChapinero2.jpg"
       ],
       "servicios": [
@@ -46,10 +46,10 @@
       "tarifaLimpieza": 70000,
       "calificacion": 4.9,
       "activo": true,
-      "imagenPrincipal": "assets/images/cartagena.jpg",
+      "imagenPrincipal": "assets/images/ApartementoCartagena.jpg",
       "imagenes": [
-        "assets/images/cartagena.jpg",
-        "assets/images/cartagena-2.jpg"
+        "assets/images/Cartagena2.JPEG",
+        "assets/images/cartagena3.jpg"
       ],
       "servicios": [
         "Wi-Fi",
@@ -78,10 +78,10 @@
       "tarifaLimpieza": 60000,
       "calificacion": 4.7,
       "activo": true,
-      "imagenPrincipal": "assets/images/guatape.jpg",
+      "imagenPrincipal": "assets/images/Guatape1.jpg",
       "imagenes": [
-        "assets/images/guatape.jpg",
-        "assets/images/guatape-2.jpg"
+        "assets/images/guatape2.jpg",
+        "assets/images/guatape3.jpg"
       ],
       "servicios": [
         "Wi-Fi",
@@ -109,10 +109,10 @@
       "tarifaLimpieza": 90000,
       "calificacion": 4.6,
       "activo": true,
-      "imagenPrincipal": "assets/images/villa-leyva.jpg",
+      "imagenPrincipal": "assets/images/villaDeLeyva1.jpg",
       "imagenes": [
-        "assets/images/villa-leyva.jpg",
-        "assets/images/villa-leyva-2.jpg"
+        "assets/images/villaDeLeyva2.jpg",
+        "assets/images/villaDeLeyva3.jpg"
       ],
       "servicios": [
         "Wi-Fi",
@@ -140,9 +140,9 @@
       "tarifaLimpieza": 50000,
       "calificacion": 4.5,
       "activo": true,
-      "imagenPrincipal": "assets/images/medellin.jpg",
+      "imagenPrincipal": "assets/images/medellin1.jpg",
       "imagenes": [
-        "assets/images/medellin.jpg"
+        "assets/images/medellin3.jpg"
       ],
       "servicios": [
         "Wi-Fi",
@@ -169,9 +169,9 @@
       "tarifaLimpieza": 120000,
       "calificacion": 4.4,
       "activo": false,
-      "imagenPrincipal": "assets/images/armenia.jpg",
+      "imagenPrincipal": "assets/images/casaCampestre.jpg",
       "imagenes": [
-        "assets/images/armenia.jpg"
+        "assets/images/CasaCampestre2.jpg"
       ],
       "servicios": [
         "Piscina",

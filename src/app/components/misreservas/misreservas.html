@@ -1,12 +1,12 @@
 <div class="container my-5">
 
-  <!-- Encabezado -->
+
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="h3 mb-0 text-dark fw-bold">
       <i class="bi bi-journal-bookmark-fill me-2 text-primary"></i>Mis reservas
     </h2>
 
-    <!-- Solo se muestra si hay reservas -->
+
     @if (listaReservas.length > 0) {
       <div class="d-flex gap-2">
         <button type="button" class="btn-eliminar-todas" (click)="eliminarTodas()">
@@ -22,7 +22,7 @@
 
   @if (listaReservas.length === 0) {
 
-    <!-- ESTADO SIN INFORMACIÓN -->
+
     <div class="card text-center py-5 border-0 shadow-sm">
       <div class="card-body">
         <div class="mb-3">
@@ -41,7 +41,7 @@
 
   } @else {
 
-    <!-- LISTA DE RESERVAS -->
+
     <div class="row g-4">
       @for (reserva of listaReservas; track reserva.id) {
         <div class="col-12 col-md-6 col-lg-4">

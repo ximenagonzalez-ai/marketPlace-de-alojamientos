@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import Simularreserva from './simularreserva';
+import { provideRouter } from '@angular/router';
+import { Simularreserva } from './simularreserva';
 
 describe('Simularreserva', () => {
   let component: Simularreserva;
@@ -7,12 +8,28 @@ describe('Simularreserva', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Simularreserva],
+      imports: [Simularreserva],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Simularreserva);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+
+
+    component.alojamiento = {
+      id: 1,
+      nombre: 'Alojamiento de prueba',
+      ciudad: 'Bogotá',
+      imagenPrincipal: 'assets/test.jpg',
+      descripcion: 'Descripción de prueba',
+      precioPorNoche: 100000,
+      capacidad: 2,
+      servicios: [],
+      calificacion: 4.8,
+      activo: true,
+    } as any;
+
+    fixture.detectChanges();
   });
 
   it('should create', () => {
