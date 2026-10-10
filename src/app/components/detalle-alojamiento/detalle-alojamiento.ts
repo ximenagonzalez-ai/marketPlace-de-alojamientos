@@ -14,13 +14,10 @@ import { Cotizacion } from '../../model/cotizacionmodel';
 export class DetalleAlojamiento implements OnInit {
   private route = inject(ActivatedRoute);
   private alojamientoService = inject(AlojamientoService);
-  private cdr = inject(ChangeDetectorRef); // <- esta línea es la que usa this.cdr
-
   private cdr = inject(ChangeDetectorRef);
+
   alojamiento?: Alojamiento;
   resenas: Resena[] = [];
-
-  /** Llega desde <app-cotizacion> y se le pasa a <app-simularreserva>. */
   cotizacion: Cotizacion | null = null;
 
   cargando = true;
@@ -28,25 +25,20 @@ export class DetalleAlojamiento implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('URL actual:', this.route.snapshot.url);
-    console.log('Parámetros:', this.route.snapshot.paramMap.get('id'));
-    console.log('ID del alojamiento:', id);
-    console.log('ID del alojamiento:', id);
 
     this.alojamientoService.getAlojamientoById(id).subscribe({
       next: (data) => {
-        console.log('Alojamiento recibido:', data);
         this.alojamiento = data;
+        this.error = !data;
         this.cargando = false;
         this.cdr.detectChanges();
       },
       error: (error) => {
-        console.log('Error al cargar alojamiento:', error);
+        console.error('Error al cargar alojamiento:', error);
         this.error = true;
         this.cargando = false;
         this.cdr.detectChanges();
       },
-      complete: () => console.log('El servicio de alojamiento terminó'),
     });
 
     this.alojamientoService.getResenasByAlojamientoId(id).subscribe({
@@ -55,11 +47,9 @@ export class DetalleAlojamiento implements OnInit {
         this.cdr.detectChanges();
       },
       error: (error) => {
-        console.log('Error al cargar reseñas:', error);
-      },
-      error: (error) => {
-        console.log('Error al cargar reseñas:', error);
+        console.error('Error al cargar reseñas:', error);
       },
     });
   }
 }
+
