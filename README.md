@@ -1,59 +1,80 @@
-# ProyectoAlojamientos
+# StayHome - Marketplace de Alojamientos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+## Descripción
+Aplicación web frontend desarrollada en Angular para Inversiones LR. Permite a los huéspedes explorar alojamientos, filtrarlos, ver su detalle, cotizar una estancia y simular una reserva. Proyecto de Desarrollo de Sistemas de Información 3, Universidad El Bosque.
 
-## Development server
+## Integrantes
+- Miguel Sierra
+- Santiago 
+- Maria Ximena Polo
+- Ximena Gonzalez
 
-To start a local development server, run:
+## Tecnologías utilizadas
+- Angular
+- TypeScript
+- Bootstrap
+- Node.js y npm
+- GitHub
 
+
+## Instalación
+```bash
+git clone https://github.com/ximenagonzalez-ai/marketPlace-de-alojamientos.git
+cd marketPlace-de-alojamientos
+npm install
+```
+
+## Ejecución
 ```bash
 ng serve
 ```
+Abrir en el navegador: http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Principales funcionalidades
+- Página inicial con alojamientos destacados
+- Listado de alojamientos activos
+- Filtros por ciudad, huéspedes, tipo y precio máximo
+- Detalle con reseñas e imágenes
+- Cotización con validación de fechas
+- Simulación de reserva y consulta en "Mis reservas"
 
-## Code scaffolding
+## Estructura del proyecto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+ProyectoAlojamientos/
+├── public/
+│   ├── assets/
+│   │   ├── data/
+│   │   │   └── marketplace-data.json    # Datos iniciales de la aplicación
+│   │   └── images/                      # Imágenes de los alojamientos
+│   └── favicon.ico
+├── src/
+│   └── app/
+│       ├── components/
+│       │   ├── alojamientos-list/       # Listado de alojamientos y filtros
+│       │   ├── cotizacion/              # Cotización de la estancia
+│       │   ├── detalle-alojamiento/     # Vista de detalle de un alojamiento
+│       │   ├── footer/                  # Pie de página
+│       │   ├── home/                    # Página inicial
+│       │   ├── misreservas/             # Consulta de reservas realizadas
+│       │   ├── navbarcomponent/         # Barra de navegación
+│       │   └── simularreserva/          # Formulario de simulación de reserva
+│       ├── model/
+│       │   ├── alojamientomodel.ts      # Interfaz Alojamiento
+│       │   ├── cotizacionmodel.ts       # Interfaz Cotización
+│       │   ├── resena.model.ts          # Interfaz Reseña
+│       │   └── reservamodel.ts          # Interfaz Reserva
+│       ├── service/
+│       │   ├── alojamientoservice.ts    # Acceso a los datos (JSON)
+│       │   └── reservaservice.ts        # Manejo de reservas
+│       ├── app.css
+│       ├── app.html
+│       ├── app.routes.ts                # Definición de rutas
+│       └── app.ts                       # Componente raíz
+└── README.md
 ```
+## Datos de la aplicación
+Los datos iniciales se encuentran en `public/assets/data/marketplace-data.json`
+y son consultados a través de `AlojamientoService`. 
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Las imágenes están en `public/assets/images/`.
