@@ -5,7 +5,7 @@ Aplicación web frontend desarrollada en Angular para Inversiones LR. Permite a 
 
 ## Integrantes
 - Miguel Sierra
-- Santiago 
+- Santiago Delacroix
 - Maria Ximena Polo
 - Ximena Gonzalez
 
