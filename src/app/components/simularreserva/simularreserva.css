@@ -1,0 +1,92 @@
+:host {
+  display: block;
+  color: #212529;
+}
+
+
+.reserva-card {
+  width: 100%;
+  margin: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+.reserva-card.border-0 {
+  border: 1px solid #e9ecef !important;
+}
+
+.reserva-card.border-success {
+  border-color: #b7dfc2 !important;
+}
+
+.reserva-card h2 {
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+
+.bg-light {
+  background-color: #f8f9fa !important;
+  border: 1px solid #f1f3f5;
+  border-radius: 12px !important;
+}
+
+.text-primary {
+  color: #212529 !important;
+}
+
+
+.form-label {
+  font-size: 0.85rem;
+  color: #495057;
+}
+
+.form-control {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+}
+
+.form-control:focus {
+  border-color: #212529;
+  box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.12);
+}
+
+
+.alert {
+  font-size: 0.9rem;
+  border-radius: 12px;
+}
+
+.badge.text-bg-success {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #1e7e34 !important;
+  background-color: #e6f4ea !important;
+}
+
+
+.btn {
+  font-weight: 600;
+  border-radius: 10px !important;
+}
+
+.btn-primary {
+  color: #fff !important;
+  background-color: #212529 !important;
+  border: 1px solid #212529 !important;
+  box-shadow: none !important;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #000 !important;
+  border-color: #000 !important;
+}
+
+.btn-primary:disabled {
+  background-color: #adb5bd !important;
+  border-color: #adb5bd !important;
+  opacity: 1;
+  cursor: not-allowed;
+}

@@ -1,15 +1,115 @@
+/* ---------- Barra ---------- */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
   min-height: 70px;
 }
 
+/* ---------- Marca con logo cuadrado ---------- */
 .navbar-brand {
-  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #212529;
 }
 
-.nav-link {
-  margin: 0 8px;
+.navbar-brand::before {
+  content: 'S';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: #212529;
+  border-radius: 10px;
 }
 
-.nav-link.active {
-  font-weight: bold;
+/* ---------- Botones de la derecha ---------- */
+.navbar .btn {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* ---------- Botón hamburguesa ---------- */
+.navbar-toggler {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 0.4rem 0.55rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.15);
+}
+
+/* ---------- Enlaces ---------- */
+.navbar .navbar-nav .nav-link {
+  margin: 0;
+  padding: 0.5rem 1.1rem;
+  font-weight: 500;
+  color: #6c757d;
+  border-radius: 999px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #212529;
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: #212529;
+  font-weight: 600;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Escritorio: menú dentro de una cápsula gris ---------- */
+@media (min-width: 992px) {
+  .navbar .navbar-nav {
+    gap: 2px;
+    padding: 4px;
+    background: #f1f3f5;
+    border-radius: 999px;
+  }
+}
+
+/* ---------- Celulares y tabletas ---------- */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    margin-top: 8px;
+    padding-bottom: 14px;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .navbar .navbar-nav {
+    padding-top: 10px;
+  }
+
+  .navbar .navbar-nav .nav-link {
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+  }
+
+  .navbar .navbar-nav .nav-link.active {
+    background: #f1f3f5;
+    box-shadow: none;
+  }
+
+  .navbar-collapse > .d-flex {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .navbar-collapse > .d-flex .btn {
+    width: 100%;
+  }
 }

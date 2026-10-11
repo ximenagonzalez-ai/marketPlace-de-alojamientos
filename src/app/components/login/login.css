@@ -1,3 +1,54 @@
+:host {
+  display: block;
+  color: #242421;
+}
+
 .card {
-  background-color: #f8f9fa;
+  background-color: #f8f6f0;
+  border: 1px solid #242421;
+  border-radius: 0;
+  box-shadow: 6px 6px 0 #d4cbbd;
+  color: #242421;
+  overflow: hidden;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card .card-title {
+  color: #242421;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.card .btn {
+  border-radius: 0;
+  font-weight: 700;
+}
+
+.card .btn-primary {
+  background-color: #242421;
+  border-color: #242421;
+  color: #f2efe8;
+}
+
+.card .btn-primary:hover {
+  background-color: #873f30;
+  border-color: #873f30;
+}
+
+.card input,
+.card select,
+.card textarea {
+  border-radius: 0;
+  border: 1px solid #b7aea0;
+  background-color: #fffdf8;
+  color: #242421;
+}
+
+.card input:focus,
+.card select:focus,
+.card textarea:focus {
+  border-color: #873f30;
+  box-shadow: 0 0 0 2px rgba(135, 63, 48, 0.15);
 }

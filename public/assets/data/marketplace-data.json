@@ -140,9 +140,10 @@
       "tarifaLimpieza": 50000,
       "calificacion": 4.5,
       "activo": true,
-      "imagenPrincipal": "assets/images/medellin1.jpg",
+      "imagenPrincipal": "assets/images/medellin3.jpg",
       "imagenes": [
-        "assets/images/medellin3.jpg"
+        "assets/images/medellin.png",
+        "assets/images/medellin2.png"
       ],
       "servicios": [
         "Wi-Fi",
@@ -168,10 +169,11 @@
       "precioNoche": 650000,
       "tarifaLimpieza": 120000,
       "calificacion": 4.4,
-      "activo": false,
+      "activo": true,
       "imagenPrincipal": "assets/images/casaCampestre.jpg",
       "imagenes": [
-        "assets/images/CasaCampestre2.jpg"
+        "assets/images/CasaCampestre2.jpg",
+        "assets/images/casacampestrep.png"
       ],
       "servicios": [
         "Piscina",
@@ -181,6 +183,286 @@
       "reglas": [
         "No fiestas"
       ]
+    },
+    {
+      "id": 7,
+      "nombre": "Apartamento con vista al Rodadero",
+      "descripcion": "Apartamento a pocos pasos de la playa, con balcón y vista al mar en el sector del Rodadero.",
+      "ciudad": "Santa Marta",
+      "ubicacion": "El Rodadero, Santa Marta",
+      "tipo": "Apartamento",
+      "capacidad": 4,
+      "habitaciones": 2,
+      "camas": 2,
+      "banos": 2,
+      "precioNoche": 310000,
+      "tarifaLimpieza": 55000,
+      "calificacion": 4.6,
+      "activo": true,
+      "imagenPrincipal": "assets/images/santamarta.png",
+      "imagenes": ["assets/images/santamarta2.png", "assets/images/santamarta3.png"],
+      "servicios": ["Wi-Fi", "Aire acondicionado", "Piscina", "Cocina"],
+      "reglas": ["No fumar", "No se permiten fiestas"]
+    },
+    {
+      "id": 8,
+      "nombre": "Casa de playa en Taganga",
+      "descripcion": "Casa fresca a una cuadra de la bahía de Taganga, ideal para quienes quieren bucear y descansar.",
+      "ciudad": "Santa Marta",
+      "ubicacion": "Taganga, Santa Marta",
+      "tipo": "Casa",
+      "capacidad": 8,
+      "habitaciones": 4,
+      "camas": 5,
+      "banos": 3,
+      "precioNoche": 480000,
+      "tarifaLimpieza": 85000,
+      "calificacion": 4.5,
+      "activo": true,
+      "imagenPrincipal": "assets/images/taganga.jpg",
+      "imagenes": ["assets/images/taganga2.png", "assets/images/taganga3.png"],
+      "servicios": ["Wi-Fi", "Aire acondicionado", "Cocina", "BBQ", "Parqueadero"],
+      "reglas": ["No fumar en interiores", "Silencio después de las 11 PM"]
+    },
+    {
+      "id": 9,
+      "nombre": "Apartamento moderno en Alto Prado",
+      "descripcion": "Apartamento amoblado en una de las zonas más tranquilas y seguras de Barranquilla.",
+      "ciudad": "Barranquilla",
+      "ubicacion": "Alto Prado, Barranquilla",
+      "tipo": "Apartamento",
+      "capacidad": 3,
+      "habitaciones": 1,
+      "camas": 2,
+      "banos": 1,
+      "precioNoche": 200000,
+      "tarifaLimpieza": 45000,
+      "calificacion": 4.4,
+      "activo": true,
+      "imagenPrincipal": "assets/images/barranquilla.png",
+      "imagenes": ["assets/images/barranquilla2.png", "assets/images/barranquilla3.png"],
+      "servicios": ["Wi-Fi", "Aire acondicionado", "Cocina", "Gimnasio", "Parqueadero"],
+      "reglas": ["No fumar", "No mascotas"]
+    },
+    {
+      "id": 10,
+      "nombre": "Casa con patio en San Antonio",
+      "descripcion": "Casa tradicional con patio interior en el barrio San Antonio, cerca de cafés y miradores.",
+      "ciudad": "Cali",
+      "ubicacion": "San Antonio, Cali",
+      "tipo": "Casa",
+      "capacidad": 6,
+      "habitaciones": 3,
+      "camas": 4,
+      "banos": 2,
+      "precioNoche": 360000,
+      "tarifaLimpieza": 65000,
+      "calificacion": 4.7,
+      "activo": true,
+      "imagenPrincipal": "assets/images/calicasa.png",
+      "imagenes": ["assets/images/calicasa2.png", "assets/images/calicasa3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Aire acondicionado", "Lavadora"],
+      "reglas": ["No fiestas", "No fumar"]
+    },
+    {
+      "id": 11,
+      "nombre": "Apartamento en Granada",
+      "descripcion": "Apartamento luminoso a pasos de restaurantes y vida nocturna del barrio Granada.",
+      "ciudad": "Cali",
+      "ubicacion": "Granada, Cali",
+      "tipo": "Apartamento",
+      "capacidad": 2,
+      "habitaciones": 1,
+      "camas": 1,
+      "banos": 1,
+      "precioNoche": 170000,
+      "tarifaLimpieza": 40000,
+      "calificacion": 4.3,
+      "activo": true,
+      "imagenPrincipal": "assets/images/granada.png",
+      "imagenes": ["assets/images/granada2.png", "assets/images/granada3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Televisión", "Aire acondicionado"],
+      "reglas": ["No fumar", "No se permiten fiestas"]
+    },
+    {
+      "id": 12,
+      "nombre": "Apartamento en Cabecera",
+      "descripcion": "Apartamento cómodo cerca de centros comerciales y clínicas en Cabecera del Llano.",
+      "ciudad": "Bucaramanga",
+      "ubicacion": "Cabecera del Llano, Bucaramanga",
+      "tipo": "Apartamento",
+      "capacidad": 4,
+      "habitaciones": 2,
+      "camas": 3,
+      "banos": 2,
+      "precioNoche": 220000,
+      "tarifaLimpieza": 50000,
+      "calificacion": 4.4,
+      "activo": true,
+      "imagenPrincipal": "assets/images/cabecera.png",
+      "imagenes": ["assets/images/cabecera2.png","assets/images/cabecera3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Parqueadero", "Lavadora"],
+      "reglas": ["No fumar"]
+    },
+    {
+      "id": 13,
+      "nombre": "Casa frente al mar en San Luis",
+      "descripcion": "Casa de dos pisos con acceso directo a la playa en el sector de San Luis.",
+      "ciudad": "San Andrés",
+      "ubicacion": "San Luis, San Andrés",
+      "tipo": "Casa",
+      "capacidad": 7,
+      "habitaciones": 3,
+      "camas": 5,
+      "banos": 2,
+      "precioNoche": 540000,
+      "tarifaLimpieza": 90000,
+      "calificacion": 4.8,
+      "activo": true,
+      "imagenPrincipal": "assets/images/sanandres.png",
+      "imagenes": ["assets/images/sanandres2.png", "assets/images/sanandres3.png"],
+      "servicios": ["Wi-Fi", "Aire acondicionado", "Cocina", "BBQ", "Terraza"],
+      "reglas": ["No fumar", "No se permiten fiestas"]
+    },
+    {
+      "id": 14,
+      "nombre": "Apartamento en el centro de San Andrés",
+      "descripcion": "Apartamento práctico cerca del comercio y de las playas del centro de la isla.",
+      "ciudad": "San Andrés",
+      "ubicacion": "Centro, San Andrés",
+      "tipo": "Apartamento",
+      "capacidad": 4,
+      "habitaciones": 2,
+      "camas": 3,
+      "banos": 1,
+      "precioNoche": 290000,
+      "tarifaLimpieza": 50000,
+      "calificacion": 4.2,
+      "activo": true,
+      "imagenPrincipal": "assets/images/centrosan.png",
+      "imagenes": ["assets/images/centrosan2.png", "assets/images/centrosan3.png"],
+      "servicios": ["Wi-Fi", "Aire acondicionado", "Cocina", "Televisión"],
+      "reglas": ["No fumar", "No mascotas"]
+    },
+    {
+      "id": 15,
+      "nombre": "Apartamento en la Circunvalar",
+      "descripcion": "Apartamento con vista a la ciudad y a las montañas del Eje Cafetero.",
+      "ciudad": "Pereira",
+      "ubicacion": "Avenida Circunvalar, Pereira",
+      "tipo": "Apartamento",
+      "capacidad": 3,
+      "habitaciones": 1,
+      "camas": 2,
+      "banos": 1,
+      "precioNoche": 190000,
+      "tarifaLimpieza": 40000,
+      "calificacion": 4.5,
+      "activo": true,
+      "imagenPrincipal": "assets/images/circunvalar3.png",
+      "imagenes": ["assets/images/circunvalar2.png","assets/images/circunvalar.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Parqueadero", "Televisión"],
+      "reglas": ["No fumar"]
+    },
+    {
+      "id": 16,
+      "nombre": "Casa de montaña en Chipre",
+      "descripcion": "Casa con vista a los nevados y zonas verdes en el tradicional sector de Chipre.",
+      "ciudad": "Manizales",
+      "ubicacion": "Chipre, Manizales",
+      "tipo": "Casa",
+      "capacidad": 6,
+      "habitaciones": 3,
+      "camas": 4,
+      "banos": 2,
+      "precioNoche": 330000,
+      "tarifaLimpieza": 60000,
+      "calificacion": 4.6,
+      "activo": true,
+      "imagenPrincipal": "assets/images/manizales.png",
+      "imagenes": ["assets/images/manizales2.png", "assets/images/manizales3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Chimenea", "Parqueadero"],
+      "reglas": ["No fiestas", "No fumar"]
+    },
+    {
+      "id": 17,
+      "nombre": "Cabaña cerca al Valle de Cocora",
+      "descripcion": "Cabaña de madera rodeada de bosque, a diez minutos del Valle de Cocora.",
+      "ciudad": "Salento",
+      "ubicacion": "Vía al Valle de Cocora, Salento",
+      "tipo": "Cabaña",
+      "capacidad": 5,
+      "habitaciones": 2,
+      "camas": 3,
+      "banos": 1,
+      "precioNoche": 280000,
+      "tarifaLimpieza": 50000,
+      "calificacion": 4.9,
+      "activo": true,
+      "imagenPrincipal": "assets/images/cabañavalle.png",
+      "imagenes": ["assets/images/cabañavalle2.png", "assets/images/cabañavalle3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Chimenea", "Parqueadero"],
+      "reglas": ["No fumar", "Silencio después de las 10 PM"]
+    },
+    {
+      "id": 18,
+      "nombre": "Casa de pueblo en Jardín",
+      "descripcion": "Casa de balcones coloridos a una cuadra del parque principal de Jardín.",
+      "ciudad": "Jardín",
+      "ubicacion": "Centro, Jardín, Antioquia",
+      "tipo": "Casa",
+      "capacidad": 6,
+      "habitaciones": 3,
+      "camas": 4,
+      "banos": 2,
+      "precioNoche": 340000,
+      "tarifaLimpieza": 60000,
+      "calificacion": 4.8,
+      "activo": true,
+      "imagenPrincipal": "assets/images/casajardin.png",
+      "imagenes": ["assets/images/casajardin2.png", "assets/images/casajardin3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Terraza", "Lavadora"],
+      "reglas": ["No fiestas", "No fumar"]
+    },
+    {
+      "id": 19,
+      "nombre": "Casa de piedra en Barichara",
+      "descripcion": "Casa de piedra y teja en el centro de Barichara, con terraza y hamacas.",
+      "ciudad": "Barichara",
+      "ubicacion": "Centro histórico, Barichara",
+      "tipo": "Casa",
+      "capacidad": 6,
+      "habitaciones": 3,
+      "camas": 4,
+      "banos": 2,
+      "precioNoche": 390000,
+      "tarifaLimpieza": 70000,
+      "calificacion": 4.9,
+      "activo": true,
+      "imagenPrincipal": "assets/images/casapiedra.jpg",
+      "imagenes": ["assets/images/casapiedra2.png", "assets/images/casapiedra3.png"],
+      "servicios": ["Wi-Fi", "Cocina", "Terraza", "Aire acondicionado"],
+      "reglas": ["No fiestas", "No mascotas"]
+    },
+    {
+      "id": 20,
+      "nombre": "Finca en Santa Fe de Antioquia",
+      "descripcion": "Finca con piscina y amplias zonas verdes a diez minutos del centro histórico.",
+      "ciudad": "Santa Fe de Antioquia",
+      "ubicacion": "Vereda Sucre, Santa Fe de Antioquia",
+      "tipo": "Finca",
+      "capacidad": 12,
+      "habitaciones": 5,
+      "camas": 8,
+      "banos": 4,
+      "precioNoche": 780000,
+      "tarifaLimpieza": 130000,
+      "calificacion": 4.6,
+      "activo": true,
+      "imagenPrincipal": "assets/images/finca3.png",
+      "imagenes": ["assets/images/finca2.png","assets/images/finca.png"],
+      "servicios": ["Piscina", "BBQ", "Aire acondicionado", "Parqueadero", "Wi-Fi"],
+      "reglas": ["No fiestas con música alta", "Máximo 12 huéspedes"]
     }
   ],
   "resenas": [
@@ -199,11 +481,46 @@
       "comentario": "Muy buena experiencia."
     },
     {
+      "id": 6,
+      "alojamientoId": 1,
+      "usuario": "Laura Beltrán",
+      "calificacion": 5,
+      "comentario": "Muy buena ubicación en Bogotá, todo queda cerca y se siente seguro."
+    },
+    {
       "id": 3,
       "alojamientoId": 2,
       "usuario": "Andrea López",
       "calificacion": 5,
       "comentario": "La vista es excelente y la ubicación muy conveniente."
+    },
+    {
+      "id": 7,
+      "alojamientoId": 2,
+      "usuario": "Verónica Páez",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 8,
+      "alojamientoId": 2,
+      "usuario": "Felipe Moreno",
+      "calificacion": 5,
+      "comentario": "El apartamento estaba impecable y tenía todo lo necesario para la estadía."
+    },
+    {
+      "id": 9,
+      "alojamientoId": 2,
+      "usuario": "Daniela Herrera",
+      "calificacion": 5,
+      "comentario": "Perfecto para una escapada corta, silencioso y con buena vista."
+    },
+    {
+      "id": 10,
+      "alojamientoId": 2,
+      "usuario": "Jorge Medina",
+      "calificacion": 4,
+      "comentario": "Buen apartamento y bien ubicado, aunque se escuchaba algo de ruido de la calle."
     },
     {
       "id": 4,
@@ -213,11 +530,487 @@
       "comentario": "Excelente lugar para descansar."
     },
     {
+      "id": 11,
+      "alojamientoId": 3,
+      "usuario": "Camilo Restrepo",
+      "calificacion": 5,
+      "comentario": "Perfecta para una escapada en pareja o con amigos, muy privada."
+    },
+    {
+      "id": 12,
+      "alojamientoId": 3,
+      "usuario": "Lucía Franco",
+      "calificacion": 5,
+      "comentario": "Nos encantó la zona de Guatapé y la cabaña tiene todo lo necesario."
+    },
+    {
+      "id": 13,
+      "alojamientoId": 3,
+      "usuario": "Alejandro Vélez",
+      "calificacion": 4,
+      "comentario": "Lugar muy tranquilo, aunque el camino de acceso es algo difícil."
+    },
+    {
+      "id": 14,
+      "alojamientoId": 3,
+      "usuario": "Manuela Ospina",
+      "calificacion": 5,
+      "comentario": "El anfitrión estuvo pendiente de todo y nos dejó leña y un detalle de bienvenida."
+    },
+    {
       "id": 5,
       "alojamientoId": 4,
       "usuario": "Natalia Pérez",
       "calificacion": 4,
       "comentario": "La casa es amplia y está muy bien ubicada."
+    },
+    {
+      "id": 15,
+      "alojamientoId": 4,
+      "usuario": "Santiago Vargas",
+      "calificacion": 5,
+      "comentario": "Todo muy limpio y ordenado, y las camas son cómodas."
+    },
+    {
+      "id": 16,
+      "alojamientoId": 4,
+      "usuario": "Ricardo Lozano",
+      "calificacion": 5,
+      "comentario": "Una casa con mucho carácter. El anfitrión nos dio excelentes recomendaciones."
+    },
+    {
+      "id": 17,
+      "alojamientoId": 4,
+      "usuario": "Camilo Restrepo",
+      "calificacion": 4,
+      "comentario": "Casa linda y espaciosa, aunque el agua caliente tardaba en salir."
+    },
+    {
+      "id": 18,
+      "alojamientoId": 5,
+      "usuario": "Juan Pablo Cano",
+      "calificacion": 3,
+      "comentario": "El lugar está bien por el precio, pero esperaba un poco más de mantenimiento."
+    },
+    {
+      "id": 19,
+      "alojamientoId": 5,
+      "usuario": "Héctor Parra",
+      "calificacion": 3,
+      "comentario": "Una estadía aceptable. El anfitrión fue amable y solucionó los inconvenientes."
+    },
+    {
+      "id": 20,
+      "alojamientoId": 5,
+      "usuario": "Ana María Bernal",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 21,
+      "alojamientoId": 5,
+      "usuario": "Paula Jiménez",
+      "calificacion": 5,
+      "comentario": "Tal cual como en las fotos. El check-in fue rápido y el anfitrión muy atento."
+    },
+    {
+      "id": 22,
+      "alojamientoId": 5,
+      "usuario": "Mateo Salazar",
+      "calificacion": 5,
+      "comentario": "Muy buena ubicación en Medellín, todo queda cerca y se siente seguro."
+    },
+    {
+      "id": 23,
+      "alojamientoId": 7,
+      "usuario": "Ricardo Lozano",
+      "calificacion": 5,
+      "comentario": "Muy buena ubicación en Santa Marta, todo queda cerca y se siente seguro."
+    },
+    {
+      "id": 24,
+      "alojamientoId": 7,
+      "usuario": "Óscar Montoya",
+      "calificacion": 4,
+      "comentario": "Cumple con lo que ofrece, el parqueadero queda un poco ajustado."
+    },
+    {
+      "id": 25,
+      "alojamientoId": 7,
+      "usuario": "Camilo Restrepo",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 26,
+      "alojamientoId": 7,
+      "usuario": "Manuela Ospina",
+      "calificacion": 4,
+      "comentario": "Cómodo y limpio. El Wi-Fi era un poco lento, pero en general muy bien."
+    },
+    {
+      "id": 27,
+      "alojamientoId": 8,
+      "usuario": "Mateo Salazar",
+      "calificacion": 5,
+      "comentario": "La casa es amplia, fresca y tiene un ambiente muy acogedor."
+    },
+    {
+      "id": 28,
+      "alojamientoId": 8,
+      "usuario": "Daniel Arango",
+      "calificacion": 3,
+      "comentario": "Una estadía aceptable. El anfitrión fue amable y solucionó los inconvenientes."
+    },
+    {
+      "id": 29,
+      "alojamientoId": 8,
+      "usuario": "Jorge Medina",
+      "calificacion": 4,
+      "comentario": "La pasamos muy bien en familia, solo faltó mejorar la señal de internet."
+    },
+    {
+      "id": 30,
+      "alojamientoId": 8,
+      "usuario": "Manuela Ospina",
+      "calificacion": 3,
+      "comentario": "El lugar está bien por el precio, pero esperaba un poco más de mantenimiento."
+    },
+    {
+      "id": 31,
+      "alojamientoId": 9,
+      "usuario": "Verónica Páez",
+      "calificacion": 3,
+      "comentario": "El lugar está bien por el precio, pero esperaba un poco más de mantenimiento."
+    },
+    {
+      "id": 32,
+      "alojamientoId": 9,
+      "usuario": "Nicolás Duarte",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 33,
+      "alojamientoId": 9,
+      "usuario": "Valentina Castro",
+      "calificacion": 3,
+      "comentario": "Una estadía aceptable. El anfitrión fue amable y solucionó los inconvenientes."
+    },
+    {
+      "id": 34,
+      "alojamientoId": 9,
+      "usuario": "Daniela Herrera",
+      "calificacion": 4,
+      "comentario": "Cumple con lo que ofrece, el parqueadero queda un poco ajustado."
+    },
+    {
+      "id": 35,
+      "alojamientoId": 10,
+      "usuario": "Verónica Páez",
+      "calificacion": 4,
+      "comentario": "Muy buena ubicación en Cali. Las camas podrían ser un poco más cómodas."
+    },
+    {
+      "id": 36,
+      "alojamientoId": 10,
+      "usuario": "Juliana Ortiz",
+      "calificacion": 5,
+      "comentario": "Ideal para ir en familia, había espacio de sobra para todos."
+    },
+    {
+      "id": 37,
+      "alojamientoId": 10,
+      "usuario": "Mariana Cárdenas",
+      "calificacion": 4,
+      "comentario": "Casa linda y espaciosa, aunque el agua caliente tardaba en salir."
+    },
+    {
+      "id": 38,
+      "alojamientoId": 11,
+      "usuario": "Luisa Cortés",
+      "calificacion": 5,
+      "comentario": "El apartamento estaba impecable y tenía todo lo necesario para la estadía."
+    },
+    {
+      "id": 39,
+      "alojamientoId": 11,
+      "usuario": "Mateo Salazar",
+      "calificacion": 4,
+      "comentario": "Cumple con lo que ofrece, el parqueadero queda un poco ajustado."
+    },
+    {
+      "id": 40,
+      "alojamientoId": 11,
+      "usuario": "Jorge Medina",
+      "calificacion": 5,
+      "comentario": "Excelente relación entre precio y calidad, y el Wi-Fi funcionó muy bien."
+    },
+    {
+      "id": 41,
+      "alojamientoId": 12,
+      "usuario": "Ana María Bernal",
+      "calificacion": 4,
+      "comentario": "Cómodo y limpio. El Wi-Fi era un poco lento, pero en general muy bien."
+    },
+    {
+      "id": 42,
+      "alojamientoId": 12,
+      "usuario": "Felipe Moreno",
+      "calificacion": 4,
+      "comentario": "Cumple con lo que ofrece, el parqueadero queda un poco ajustado."
+    },
+    {
+      "id": 43,
+      "alojamientoId": 12,
+      "usuario": "Paula Jiménez",
+      "calificacion": 3,
+      "comentario": "Buena ubicación, aunque algunos detalles del alojamiento necesitan mejorar."
+    },
+    {
+      "id": 44,
+      "alojamientoId": 12,
+      "usuario": "Gabriela Suárez",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 45,
+      "alojamientoId": 12,
+      "usuario": "Daniela Herrera",
+      "calificacion": 4,
+      "comentario": "Buen apartamento y bien ubicado, aunque se escuchaba algo de ruido de la calle."
+    },
+    {
+      "id": 46,
+      "alojamientoId": 13,
+      "usuario": "Lucía Franco",
+      "calificacion": 5,
+      "comentario": "La casa es amplia, fresca y tiene un ambiente muy acogedor."
+    },
+    {
+      "id": 47,
+      "alojamientoId": 13,
+      "usuario": "Carolina Mora",
+      "calificacion": 5,
+      "comentario": "Volveríamos a hospedarnos aquí sin pensarlo, fue un fin de semana inolvidable."
+    },
+    {
+      "id": 48,
+      "alojamientoId": 13,
+      "usuario": "Sebastián Ríos",
+      "calificacion": 5,
+      "comentario": "Una casa con mucho carácter. El anfitrión nos dio excelentes recomendaciones."
+    },
+    {
+      "id": 49,
+      "alojamientoId": 13,
+      "usuario": "Isabela Cruz",
+      "calificacion": 4,
+      "comentario": "Buena casa para el precio, el anfitrión respondió siempre rápido."
+    },
+    {
+      "id": 50,
+      "alojamientoId": 14,
+      "usuario": "Alejandro Vélez",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 51,
+      "alojamientoId": 14,
+      "usuario": "Valentina Castro",
+      "calificacion": 3,
+      "comentario": "Buena ubicación, aunque algunos detalles del alojamiento necesitan mejorar."
+    },
+    {
+      "id": 52,
+      "alojamientoId": 14,
+      "usuario": "Mariana Cárdenas",
+      "calificacion": 3,
+      "comentario": "El lugar está bien por el precio, pero esperaba un poco más de mantenimiento."
+    },
+    {
+      "id": 53,
+      "alojamientoId": 15,
+      "usuario": "Luisa Cortés",
+      "calificacion": 4,
+      "comentario": "Buen apartamento y bien ubicado, aunque se escuchaba algo de ruido de la calle."
+    },
+    {
+      "id": 54,
+      "alojamientoId": 15,
+      "usuario": "Mariana Cárdenas",
+      "calificacion": 5,
+      "comentario": "Llegamos tarde y aun así nos recibieron muy bien. Todo estaba listo."
+    },
+    {
+      "id": 55,
+      "alojamientoId": 15,
+      "usuario": "Paula Jiménez",
+      "calificacion": 3,
+      "comentario": "El lugar está bien por el precio, pero esperaba un poco más de mantenimiento."
+    },
+    {
+      "id": 56,
+      "alojamientoId": 15,
+      "usuario": "Isabela Cruz",
+      "calificacion": 4,
+      "comentario": "Cómodo y limpio. El Wi-Fi era un poco lento, pero en general muy bien."
+    },
+    {
+      "id": 57,
+      "alojamientoId": 15,
+      "usuario": "Tomás Giraldo",
+      "calificacion": 4,
+      "comentario": "Muy buena experiencia, solo le faltaría algo más de menaje en la cocina."
+    },
+    {
+      "id": 58,
+      "alojamientoId": 16,
+      "usuario": "Gabriela Suárez",
+      "calificacion": 4,
+      "comentario": "Casa linda y espaciosa, aunque el agua caliente tardaba en salir."
+    },
+    {
+      "id": 59,
+      "alojamientoId": 16,
+      "usuario": "Lucía Franco",
+      "calificacion": 5,
+      "comentario": "Nos encantó el patio, pasamos las noches conversando afuera."
+    },
+    {
+      "id": 60,
+      "alojamientoId": 16,
+      "usuario": "Ricardo Lozano",
+      "calificacion": 5,
+      "comentario": "Todo muy limpio y ordenado, y las camas son cómodas."
+    },
+    {
+      "id": 61,
+      "alojamientoId": 16,
+      "usuario": "Manuela Ospina",
+      "calificacion": 4,
+      "comentario": "Buena casa para el precio, el anfitrión respondió siempre rápido."
+    },
+    {
+      "id": 62,
+      "alojamientoId": 17,
+      "usuario": "Héctor Parra",
+      "calificacion": 5,
+      "comentario": "Nos encantó la zona de Salento y la cabaña tiene todo lo necesario."
+    },
+    {
+      "id": 63,
+      "alojamientoId": 17,
+      "usuario": "Sebastián Ríos",
+      "calificacion": 4,
+      "comentario": "Cómoda y rústica, la recomiendo llevando abrigo y provisiones."
+    },
+    {
+      "id": 64,
+      "alojamientoId": 17,
+      "usuario": "Julián Acosta",
+      "calificacion": 5,
+      "comentario": "La cabaña es muy acogedora y por las noches se siente la tranquilidad total."
+    },
+    {
+      "id": 65,
+      "alojamientoId": 17,
+      "usuario": "Felipe Moreno",
+      "calificacion": 5,
+      "comentario": "Un lugar mágico para desconectarse, el paisaje es espectacular."
+    },
+    {
+      "id": 66,
+      "alojamientoId": 18,
+      "usuario": "Luisa Cortés",
+      "calificacion": 5,
+      "comentario": "Superó nuestras expectativas, la atención fue de diez."
+    },
+    {
+      "id": 67,
+      "alojamientoId": 18,
+      "usuario": "Lucía Franco",
+      "calificacion": 5,
+      "comentario": "La casa es amplia, fresca y tiene un ambiente muy acogedor."
+    },
+    {
+      "id": 68,
+      "alojamientoId": 18,
+      "usuario": "Óscar Montoya",
+      "calificacion": 5,
+      "comentario": "Una casa con mucho carácter. El anfitrión nos dio excelentes recomendaciones."
+    },
+    {
+      "id": 69,
+      "alojamientoId": 18,
+      "usuario": "Tomás Giraldo",
+      "calificacion": 5,
+      "comentario": "Ideal para ir en familia, había espacio de sobra para todos."
+    },
+    {
+      "id": 70,
+      "alojamientoId": 19,
+      "usuario": "Tomás Giraldo",
+      "calificacion": 5,
+      "comentario": "Todo muy limpio y ordenado, y las camas son cómodas."
+    },
+    {
+      "id": 71,
+      "alojamientoId": 19,
+      "usuario": "Sara Londoño",
+      "calificacion": 5,
+      "comentario": "Ideal para ir en familia, había espacio de sobra para todos."
+    },
+    {
+      "id": 72,
+      "alojamientoId": 19,
+      "usuario": "Isabela Cruz",
+      "calificacion": 5,
+      "comentario": "Superó nuestras expectativas, la atención fue de diez."
+    },
+    {
+      "id": 73,
+      "alojamientoId": 19,
+      "usuario": "Lucía Franco",
+      "calificacion": 5,
+      "comentario": "La casa es amplia, fresca y tiene un ambiente muy acogedor."
+    },
+    {
+      "id": 74,
+      "alojamientoId": 19,
+      "usuario": "Valentina Castro",
+      "calificacion": 5,
+      "comentario": "Una casa con mucho carácter. El anfitrión nos dio excelentes recomendaciones."
+    },
+    {
+      "id": 75,
+      "alojamientoId": 20,
+      "usuario": "Sara Londoño",
+      "calificacion": 5,
+      "comentario": "Fuimos con toda la familia y los niños disfrutaron muchísimo."
+    },
+    {
+      "id": 76,
+      "alojamientoId": 20,
+      "usuario": "Juliana Ortiz",
+      "calificacion": 5,
+      "comentario": "La piscina estaba limpia y las zonas verdes muy bien cuidadas."
+    },
+    {
+      "id": 77,
+      "alojamientoId": 20,
+      "usuario": "Sofía Naranjo",
+      "calificacion": 4,
+      "comentario": "Muy buena para grupos grandes, un par de camas necesitaban cambio de colchón."
+    },
+    {
+      "id": 78,
+      "alojamientoId": 20,
+      "usuario": "Daniela Herrera",
+      "calificacion": 5,
+      "comentario": "La finca es hermosa, con mucho espacio para compartir en grupo."
     }
   ]
 }
