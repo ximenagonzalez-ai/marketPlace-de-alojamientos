@@ -20,7 +20,7 @@ export class AlojamientosList implements OnInit {
   tipoFiltro = signal<string>('');
   precioMaxFiltro = signal<number | null>(null);
 
-  tiposAlojamiento = ['Apartamento', 'Cabaña', 'Casa'];
+  tiposAlojamiento = ['Apartamento', 'Cabaña', 'Casa', 'Finca', 'Loft'];
 
   private normalizarTexto(texto: string): string {
     return (texto || '')
@@ -38,9 +38,7 @@ export class AlojamientosList implements OnInit {
     const precioMax = this.precioMaxFiltro();
 
     return lista.filter((alojamiento) => {
-
       if (!alojamiento.activo) return false;
-
 
       if (ciudad) {
         const ciudadAlojamiento = this.normalizarTexto(alojamiento.ciudad);
@@ -49,16 +47,13 @@ export class AlojamientosList implements OnInit {
         }
       }
 
-
       if (huespedes && huespedes > 0 && alojamiento.capacidad < huespedes) {
         return false;
       }
 
-
       if (tipo && alojamiento.tipo !== tipo) {
         return false;
       }
-
 
       if (precioMax && precioMax > 0 && alojamiento.precioNoche > precioMax) {
         return false;
@@ -82,7 +77,6 @@ export class AlojamientosList implements OnInit {
     });
   }
 
-
   onCiudadChange(val: string): void {
     this.ciudadFiltro.set(val);
   }
@@ -98,7 +92,6 @@ export class AlojamientosList implements OnInit {
   onPrecioMaxChange(val: number | null): void {
     this.precioMaxFiltro.set(val);
   }
-
 
   limpiarFiltros(): void {
     this.ciudadFiltro.set('');
